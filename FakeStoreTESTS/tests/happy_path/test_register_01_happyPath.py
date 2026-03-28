@@ -49,6 +49,9 @@ class RegisterNewUser(unittest.TestCase):
         #7. click "Delete Account" to finish test positive
         self.driver.find_element(By.CLASS_NAME, "delete-me").click()
 
+    def tearDown(self):
+        self.driver.quit()
+
 
 
 
