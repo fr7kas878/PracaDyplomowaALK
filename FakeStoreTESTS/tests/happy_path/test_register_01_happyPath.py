@@ -1,24 +1,17 @@
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
-from selenium import webdriver
-import unittest
-
+from faker import Faker
 from FakeStoreTESTS.data.userdata import *
+from selenium.webdriver.support import expected_conditions as EC
+from happy_path.base_test import BaseTest
 
+class RegisterNewUser(BaseTest):
 
-class RegisterNewUser(unittest.TestCase):
     def setUp(self):
-
-        # Open page my account
-        self.driver = webdriver.Chrome()
-        self.driver.maximize_window()
-        self.driver.get('https://fakestore.testelka.pl')
-        self.driver.implicitly_wait(10)
-
+        super().setUp()
+        self.faker = Faker()
         # close the first banner, if appears
         try:
-            WebDriverWait(self.driver, 5).until(
+            self.wait.until(
                 EC.element_to_be_clickable((By.CLASS_NAME, "woocommerce-store-notice__dismiss-link"))
             ).click()
         except:
@@ -26,41 +19,23 @@ class RegisterNewUser(unittest.TestCase):
 
    # @unittest.skip("Temporary skipping")
     def test_newuser_registration(self):
-        #1. page Moje konto (menu)
+        #1.page Moje konto (menu)
         self.driver.find_element(By.XPATH, '//*[@id="menu-item-201"]').click()
-        #2. email
+        #2.email
         self.driver.find_element(By.ID, 'reg_email').send_keys(UserData.DATA_EMAIL)
-        #3. password
+        #3.password
         self.driver.find_element(By.ID, 'reg_password').send_keys(UserData.DATA_PASSWORD)
-        #4. click show password
+        #4.click show password
         self.driver.find_element(By.CSS_SELECTOR, '[aria-label="Pokaż hasło"]').click()
         #4a wait for hide password
-        WebDriverWait(self.driver, 5).until(
+        self.wait.until(
             EC.element_to_be_clickable((By.ID, 'reg_password'))
         )
         #5.klick register button
         self.driver.find_element(By.CLASS_NAME, "woocommerce-form-register__submit").click()
 
-        #6. Check expected result: registration succeed when link "Delete account" appears on page Moje konto
-        element = WebDriverWait(self.driver, 5).until(
+        #6.Check expected result: registration succeed when link "Delete account" appears on page Moje konto
+        element = self.wait.until(
             EC.visibility_of_element_located((By.CLASS_NAME, "delete-me"))
         )
         self.assertTrue(element.is_displayed())
-
-
-
-    def tearDown(self):
-        self.driver.quit()
-
-
-
-
-
-
-
-
-
-
-
-
-
