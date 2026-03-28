@@ -23,9 +23,9 @@ class RegisterValidateFields(unittest.TestCase):
         except:
             pass  # if there is no banner - ignore it
 
-    # @unittest.skip("Temporary skipping")
+
     #@unittest.skip("Temporary skipping")
-    #case1 - browser  wrong email validation when password is corret
+    #case1 - browser  wrong email validation when password is correct
     def test_invalid_email_browser_validation(self):
         driver = self.driver
 
