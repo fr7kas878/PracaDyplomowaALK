@@ -9,19 +9,9 @@ class LogToMyAccount(BaseTest):
     def setUp(self):
         super().setUp()
         self.faker = Faker()
-        # close a banner if appears
-        try:
-            self.wait.until(
-                EC.element_to_be_clickable((By.CLASS_NAME, "woocommerce-store-notice__dismiss-link"))
-            ).click()
-        except:
-            pass  # if there is no banner - ignore it
-
 
     # @unittest.skip("Temporary skipping")
-
     def test_login_existingaccount(self):
-
 
     # case - log to my account - happy path
         #1.page Moje konto (menu)

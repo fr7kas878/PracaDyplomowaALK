@@ -1,8 +1,12 @@
 from generator_emails import GeneratorEmails
+from faker import Faker
+faker = Faker()
+
 
 class UserData:
     DATA_EMAIL = GeneratorEmails().generate_email()
     DATA_PASSWORD = "JakiesNowe87#"
+    DATA_FAKE_PASSWORD = faker.password()
     # DATA_FIRST_NAME = "Maryla"
     # DATA_LAST_NAME = "Rabczewska"
     # DATA_STREET = "Truskawkowa"
@@ -16,8 +20,6 @@ class DataToLogIn:
     DATA1_PASSWORD = "JakiesNowe67&"
     DATA2_WRONGEMAIL ="fr7kas@@gmail.com"
     DATA2_TOSHORTPASSWORD = "jakies"
-
-
 
 
 # class TestDataToRegistration

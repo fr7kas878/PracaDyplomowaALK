@@ -1,8 +1,11 @@
 from selenium import webdriver
+
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
+from faker import Faker
+
 import unittest
 
 
@@ -17,7 +20,7 @@ class BaseTest(unittest.TestCase):
 
         self.driver = webdriver.Chrome(options=options)
         self.wait = WebDriverWait(self.driver, 5)
-
+        self.faker = Faker()
         self.driver.get("https://fakestore.testelka.pl")
 
         # close banner if appears
