@@ -1,7 +1,7 @@
-type,number,cvv,expiry
-Visa,4242424242424242,Any 3 digits,Any future date
-Visa (debit),4000056655665556,Any 3 digits,Any future date
-Mastercard,5555555555554444,Any 3 digits,Any future date
-Mastercard (2-series),2223003122003222,Any 3 digits,Any future date
-Mastercard (debit),5200828282828210,Any 3 digits,Any future date
-Mastercard (prepaid),5105105105105100,Any 3 digits,Any future date
+type,number,cvv,08/36
+Visa,4242424242424242,123,09/48
+Visa (debit),4000056655665556,074,01/27
+Mastercard,5555555555554444,385,02/28
+Mastercard (2-series),2223003122003222,516,03/29
+Mastercard (debit),5200828282828210,652,04/30
+Mastercard (prepaid),5105105105105100,6767,05/55

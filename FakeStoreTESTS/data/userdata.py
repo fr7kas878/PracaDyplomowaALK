@@ -8,7 +8,7 @@ class UserData:
     DATA_PASSWORD = "JakiesNowe87#"
     DATA_FAKE_PASSWORD = faker.password()
     # DATA_FIRST_NAME = "Maryla"
-    # DATA_LAST_NAME = "Rabczewska"
+    # DATA_LAST_NAME = "Blank"
     # DATA_STREET = "Truskawkowa"
     # DATA_HOUSE_NUM=22
     # DATA_POSTAL_CODE = "55-080"
