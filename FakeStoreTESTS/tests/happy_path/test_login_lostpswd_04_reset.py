@@ -32,11 +32,18 @@ class LostPasswordReset(BaseTest):
 
         # 7.click button "Resetuj haslo"
         self.driver.find_element(By.LINK_TEXT, "Nie pamiętasz hasła?").click()
-        # 8. check button "Resetuj haslo""
-        button = self.wait.until(
-            EC.visibility_of_element_located((By.CSS_SELECTOR, 'button[value="Resetuj hasło"]'))
+
+        #8. enter user login
+        self.driver.find_element(By.ID, 'user_login').send_keys(DataToLogIn.DATA1_USEREXISTINGEMAIL)
+        # 9. klick button "Resetuj haslo"
+        self.driver.find_element(By.CSS_SELECTOR, 'button[value="Resetuj hasło"]').click()
+        # 9a. redirecting to reset link page
+        self.wait.until(EC.url_contains("reset-link-sent=true"))
+
+        # 10. check the page link - confirm reset link sent = true
+        self.assertIn(
+            "reset-link-sent=true",
+            self.driver.current_url
         )
-        self.assertEqual(
-            self.driver.current_url,
-            "https://fakestore.testelka.pl/moje-konto/zapomniane-haslo/"
-        )
+
+
