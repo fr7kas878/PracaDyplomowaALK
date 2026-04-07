@@ -39,7 +39,7 @@ class BuyingHP(BaseTest):
 
         # 5. enter a coupon code and click a button "Zastosuj kupoon"
         # coupons from csv file
-        file_path = os.path.join(os.path.dirname(__file__), '/FakeStoreTESTS/data/couponsTest.csv')
+        file_path = os.path.join(os.path.dirname(__file__), '/home/student/PycharmProjects/PracaDyplomowaALK/FakeStoreTESTS/data/couponsTest.csv')
 
         #random code
         with open(file_path, newline='') as csvfile:
