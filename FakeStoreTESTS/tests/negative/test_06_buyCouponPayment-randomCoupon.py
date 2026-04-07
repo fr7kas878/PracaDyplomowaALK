@@ -5,6 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from happy_path.base_test import BaseTest
 import csv
 import os
+import random
 
 
 class BuyingHP(BaseTest):
@@ -39,12 +40,15 @@ class BuyingHP(BaseTest):
 
         # 5. enter a coupon code and click a button "Zastosuj kupoon"
         # coupons from csv file
-        file_path = os.path.join(os.path.dirname(__file__), '/home/student/PycharmProjects/PracaDyplomowaALK/FakeStoreTESTS/data/couponsTest.csv')
+        file_path = os.path.join(os.path.dirname(__file__), '/FakeStoreTESTS/data/couponsTest.csv')
 
+        #random code
         with open(file_path, newline='') as csvfile:
             reader = csv.DictReader(csvfile)
-            first_row = next(reader)
-            coupon_code = first_row['code']
+            coupons = [row['code'] for row in reader if row.get('code')]
+
+            coupon_code = random.choice(coupons)
+            print(f"Wylosowany kupon w tym uruchomieniu testu: {coupon_code}")
 
         self.wait.until(
             EC.visibility_of_element_located((By.NAME,'coupon_code'))
@@ -54,6 +58,10 @@ class BuyingHP(BaseTest):
             EC.element_to_be_clickable((By.NAME,'apply_coupon'))
         ).click()
 
+        #check if the code is applied, message ""Kupon został pomyślnie użyty.
+        self.wait.until(
+            EC.visibility_of_element_located((By.CLASS_NAME,'woocommerce-message' ))
+        )
 
 
     pass
