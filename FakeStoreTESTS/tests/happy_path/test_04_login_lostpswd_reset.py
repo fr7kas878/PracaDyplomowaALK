@@ -29,8 +29,7 @@ class LostPasswordReset(BaseTest):
         )
         self.assertTrue(error.is_displayed())
         self.assertIn("nieprawidłowe hasło", error.text.lower())
-
-        # 7.click button "Resetuj haslo"
+       # 7.click button "Resetuj haslo"
         self.driver.find_element(By.LINK_TEXT, "Nie pamiętasz hasła?").click()
 
         #8. enter user login
@@ -45,5 +44,3 @@ class LostPasswordReset(BaseTest):
             "reset-link-sent=true",
             self.driver.current_url
         )
-
-

@@ -30,5 +30,6 @@ class LogToMyAccount(BaseTest):
         EC.visibility_of_element_located((By.LINK_TEXT, "Wyloguj"))
         )
         self.assertTrue(logout.is_displayed())
-        #7. click button "Wylogujj" to log out
+
+        #7. click button "Wyloguj" to log out
         self.driver.find_element(By.LINK_TEXT, "Wyloguj").click()

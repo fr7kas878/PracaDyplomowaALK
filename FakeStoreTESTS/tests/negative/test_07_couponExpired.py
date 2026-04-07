@@ -38,10 +38,10 @@ class BuyingHP(BaseTest):
         ).click()
 
         # 5. enter a coupon code and click a button "Zastosuj kupoon"
-        # coupons from csv file
-        file_path = os.path.join(os.path.dirname(__file__), '/home/student/PycharmProjects/PracaDyplomowaALK/FakeStoreTESTS/data/couponsTest.csv')
+        # 6. coupons from csv file
+        file_path = '/home/student/PycharmProjects/PracaDyplomowaALK/FakeStoreTESTS/data/couponsTest.csv'
 
-        #random code
+        # 7. take a random code
         with open(file_path, newline='') as csvfile:
             reader = csv.reader(csvfile)  # tu jest zwykly reader csv - ktory bierze liste, a nie slownik
             rows = list(reader)
@@ -49,19 +49,23 @@ class BuyingHP(BaseTest):
 
         print(f' W tym tescie wybieramy kod, ktory stracil waznosc: " {coupon_code} "- test negatywny')
 
+        #8. insert a coupon code
         self.wait.until(
             EC.visibility_of_element_located((By.NAME,'coupon_code'))
         ).send_keys(coupon_code)
 
-
+        #9. click aplly coupon
         self.wait.until(
             EC.element_to_be_clickable((By.NAME,'apply_coupon'))
         ).click()
 
-        #check if the code is still valid
+        #10. check if the code is still valid
         self.wait.until(
             EC.visibility_of_element_located((By.ID,'coupon-error-notice' ))
         )
+        # 11. check an expected result - message  " Kupon stracil waznosc"
+        error = self.wait.until(
+            EC.visibility_of_element_located((By.ID, 'coupon-error-notice'))
+        )
 
-
-    pass
+        self.assertIn("stracił ważność", error.text.lower())

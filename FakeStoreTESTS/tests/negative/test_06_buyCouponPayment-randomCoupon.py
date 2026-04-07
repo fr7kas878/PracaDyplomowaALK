@@ -58,7 +58,7 @@ class BuyingHP(BaseTest):
             EC.element_to_be_clickable((By.NAME,'apply_coupon'))
         ).click()
 
-        #check if the code is applied, message ""Kupon został pomyślnie użyty.
+        # .Check expected result: if the code is applied, message ""Kupon został pomyślnie użyty.
         self.wait.until(
             EC.visibility_of_element_located((By.CLASS_NAME,'woocommerce-message' ))
         )

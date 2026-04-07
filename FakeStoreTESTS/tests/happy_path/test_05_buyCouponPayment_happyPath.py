@@ -1,4 +1,5 @@
 from os import wait
+from pyexpat.errors import messages
 
 from selenium.webdriver.common.by import By
 from faker import Faker
@@ -39,32 +40,30 @@ class BuyingHP(BaseTest):
             ((By.CSS_SELECTOR, '.added_to_cart.wc-forward'))
         ).click()
 
-        # 5. enter a coupon code and click a button "Zastosuj kupoon"
-        # coupons from csv file
+        # 5. enter a coupon code and click a button "Zastosuj kupon"
+        # 6. use coupons from csv file
         file_path = os.path.join(os.path.dirname(__file__),'/home/student/PycharmProjects/PracaDyplomowaALK/FakeStoreTESTS/data/couponsTest.csv')
 
-        # take a valid code for this category
+        # 7. take a valid code for this category
         with open(file_path, newline='') as csvfile:
             reader = csv.reader(csvfile) # tu jest zwykly reader csv - ktory bierze liste a nie slownik
             rows = list(reader)
             coupon_code =rows[7][0]
 
         print (f' W tym tescie wybieramy kod dla kategorii windsurfing " {coupon_code} "- test pozytywny')
-
+        #8. wait to insert a code
         self.wait.until(
             EC.visibility_of_element_located((By.NAME,'coupon_code'))
         ).send_keys(coupon_code)
-
+        #9. click apply a coupon
         self.wait.until(
             EC.element_to_be_clickable((By.NAME,'apply_coupon'))
         ).click()
-
-        wait(2)
-
-        #check if the code is applied, message ""Kupon został pomyślnie użyty.
-        self.wait.until(
+        #10 - check displayed message
+        message_element = self.wait.until(
             EC.visibility_of_element_located((By.CLASS_NAME,'woocommerce-message' ))
         )
+        #11. Check an expected result:
+        actual_msg = message_element.text
 
-
-    pass
+        self.assertIn('Kupon został pomyślnie użyty', actual_msg)
