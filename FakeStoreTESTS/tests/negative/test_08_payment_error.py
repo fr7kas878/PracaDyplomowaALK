@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from FakeStoreTESTS.data.userdata import DataToLogIn, UserData
+from FakeStoreTESTS.data.userdata import UserData
 from selenium.webdriver.support import expected_conditions as EC
 from happy_path.base_test import BaseTest
 import csv
@@ -13,7 +13,7 @@ class BuyingHP(BaseTest):
         super().setUp()
 
     # @unittest.skip("Temporary skipping")
-    def test_buy_payment(self):
+    def test_payment_error(self):
         # 1. primary menu on main page - click Sklep
         self.driver.find_element(By.XPATH, '//*[@id="menu-item-198"]').click()
         # 2. choose a first category - windsurfing[1]
@@ -98,7 +98,7 @@ class BuyingHP(BaseTest):
             cvv = row["cvv"]
 
             print( f' W tym tescie wylosowano karte kredytowa o parametrach: {number}, {expiry_date}, {cvv}')
-        # 16.  iframe structure for private stripe like p-numberInput
+        # 16. iframe structure for private stripe like p-numberInput
             self.wait.until( EC.frame_to_be_available_and_switch_to_it( (By.CSS_SELECTOR, "iframe[name^='__privateStripeFrame']")))
         # 17. data insert
             self.wait.until( EC.visibility_of_element_located((By.ID, "payment-numberInput")) ).send_keys(number)
@@ -120,6 +120,7 @@ class BuyingHP(BaseTest):
         self.wait.until(EC.url_contains(order_number))
         current_url = self.driver.current_url
         self.assertIn(order_number, current_url)
+        print (f' Numer zamowienia to : {order_number}')
 
 
 
