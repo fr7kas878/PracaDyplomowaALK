@@ -1,4 +1,4 @@
-type,number,cvv,any future date
+type,number,cvv,expiry_date
 Visa,4242424242424242,123,09/48
 Visa (debit),4000056655665556,074,01/27
 Mastercard,5555555555554444,385,02/28

@@ -7,13 +7,14 @@ class UserData:
     DATA_EMAIL = GeneratorEmails().generate_email()
     DATA_PASSWORD = "JakiesNowe87#"
     DATA_FAKE_PASSWORD = faker.password()
-    # DATA_FIRST_NAME = "Maryla"
-    # DATA_LAST_NAME = "Blank"
-    # DATA_STREET = "Truskawkowa"
-    # DATA_HOUSE_NUM=22
-    # DATA_POSTAL_CODE = "55-080"
-    # DATA_CITY ="Koniecswiata"
-    #DATA_SEARCHPRODUCT = "Przykladowa tresc wiadomosci"
+    DATA_FIRST_NAME = "Maryla"
+    DATA_LAST_NAME = "Blank"
+    DATA_STREET = "Truskawkowa 22"
+
+    DATA_POSTAL_CODE = "55-080"
+    DATA_CITY ="Koniecswiata"
+    DATA_PHONE = 697974334
+    DATA_SEARCHPRODUCT = "Przykladowa tresc wiadomosci"
 
 class DataToLogIn:
     DATA1_USEREXISTINGEMAIL = "rightadresstome@gmail.com"
