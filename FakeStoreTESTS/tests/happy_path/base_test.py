@@ -5,7 +5,9 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from faker import Faker
-
+import csv
+import os
+import time
 import unittest
 
 
@@ -17,6 +19,7 @@ class BaseTest(unittest.TestCase):
         options.add_argument("--disable-notifications")
         options.add_argument("--disable-infobars")
         options.add_argument("--disable-extensions")
+
 
         self.driver = webdriver.Chrome(options=options)
         self.wait = WebDriverWait(self.driver, 5)
