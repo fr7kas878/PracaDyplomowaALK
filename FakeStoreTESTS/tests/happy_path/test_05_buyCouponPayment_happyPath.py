@@ -1,3 +1,5 @@
+from os import wait
+
 from selenium.webdriver.common.by import By
 from faker import Faker
 from FakeStoreTESTS.data.userdata import DataToLogIn
@@ -43,11 +45,11 @@ class BuyingHP(BaseTest):
 
         # take a valid code for this category
         with open(file_path, newline='') as csvfile:
-            reader = csv.reader(csvfile) # tu jest zwykly reader csv - ktory
+            reader = csv.reader(csvfile) # tu jest zwykly reader csv - ktory bierze liste a nie slownik
             rows = list(reader)
             coupon_code =rows[7][0]
 
-        print (f' W tym tescie wybieramy kod dla kategorii windsurfing {coupon_code}- test pozytywny')
+        print (f' W tym tescie wybieramy kod dla kategorii windsurfing " {coupon_code} "- test pozytywny')
 
         self.wait.until(
             EC.visibility_of_element_located((By.NAME,'coupon_code'))
@@ -56,6 +58,8 @@ class BuyingHP(BaseTest):
         self.wait.until(
             EC.element_to_be_clickable((By.NAME,'apply_coupon'))
         ).click()
+
+        wait(2)
 
         #check if the code is applied, message ""Kupon został pomyślnie użyty.
         self.wait.until(
