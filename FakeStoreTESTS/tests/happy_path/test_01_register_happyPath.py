@@ -36,5 +36,5 @@ class RegisterNewUser(BaseTest):
 
         #6.Check expected result: registration succeed when link "Delete account" appears on page Moje konto
         element = self.wait.until(
-            EC.visibility_of_element_located((By.CLASS_NAME, "delete-me"))
-            ).click()
+            EC.visibility_of_element_located((By.CLASS_NAME, "delete-me")) )
+        assert element.is_displayed()
