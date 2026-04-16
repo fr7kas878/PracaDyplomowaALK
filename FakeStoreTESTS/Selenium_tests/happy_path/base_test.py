@@ -7,6 +7,7 @@ from selenium.webdriver.common.by import By
 from faker import Faker
 import unittest
 
+
 class BaseTest(unittest.TestCase):
 
     def setUp(self):
@@ -16,22 +17,26 @@ class BaseTest(unittest.TestCase):
         options.add_argument("--disable-infobars")
         options.add_argument("--disable-extensions")
 
-
         self.driver = webdriver.Chrome(options=options)
-        self.wait = WebDriverWait(self.driver, 5)
+        # longer wait for better stability
+        self.wait = WebDriverWait(self.driver, 10)
         self.faker = Faker()
         self.driver.get("https://fakestore.testelka.pl")
+        # force stable viewport
+        self.driver.maximize_window()
+        # zoom 67% for better stability
+        self.driver.execute_script("document.body.style.zoom='67%'")
 
         # close banner if appears
         try:
             self.wait.until(
-                EC.element_to_be_clickable(
-                    (By.CLASS_NAME, "woocommerce-store-notice__dismiss-link") # button name on banner is Ukryj
-                )
-            ).click()
+                EC.presence_of_element_located((By.CLASS_NAME, "woocommerce-store-notice"))
+            )
+            self.driver.execute_script("document.querySelector('.woocommerce-store-notice')?.remove();")
         except:
             pass
-    #added has attribute "driver" -> because of chrome unstability
+
+    # added "has attribute" with param 'driver' -> because of chrome unstability
     def tearDown(self):
         if hasattr(self, "driver"):
             self.driver.quit()
