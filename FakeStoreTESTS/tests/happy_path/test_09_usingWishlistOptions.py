@@ -32,6 +32,3 @@ class UsingWishlistOptions(LogToMyAccount):
             ).is_displayed(),
             "Product not in wishlist"
         )
-        # )
-        # #3. click to  link element "przegladaj liste zyczen"
-        # self.wait.until(EC. element_to_be_clickable((By.XPATH, '//a[contains(@href,"wishlist")]')))
