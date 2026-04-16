@@ -90,16 +90,17 @@ class BuyingHP(BaseTest):
         file_path = '/home/student/PycharmProjects/PracaDyplomowaALK/FakeStoreTESTS/data/credit_cards.csv'
 
         with open(file_path, newline='') as csvfile:
-            reader = list(csv.DictReader(csvfile)) #other csv reader with list option for random
-            row = random.choice(reader)
+            reader = list(csv.DictReader(csvfile))
+            row = reader[5]  # row7 (index 6, because counting from 0)
 
             number = row["number"]
             expiry_date = row["expiry_date"]
             cvv = row["cvv"]
+            # 16. iframe structure for private stripe like p-numberInput
+            self.wait.until(EC.frame_to_be_available_and_switch_to_it( (By.CSS_SELECTOR, "iframe[name^='__privateStripeFrame']")))
 
-            print( f' W tym tescie wylosowano karte kredytowa o parametrach: {number}, {expiry_date}, {cvv}')
-        # 16. iframe structure for private stripe like p-numberInput
-            self.wait.until( EC.frame_to_be_available_and_switch_to_it( (By.CSS_SELECTOR, "iframe[name^='__privateStripeFrame']")))
+            print(f'W tym teście wybrano kartę kredytową o nieprawidowym numerze cvv i data waznosci, ktora juz minela( test negatywny): {number}, {expiry_date}, {cvv}')
+
         # 17. data insert
             self.wait.until( EC.visibility_of_element_located((By.ID, "payment-numberInput")) ).send_keys(number)
             self.wait.until( EC.visibility_of_element_located((By.ID, "payment-expiryInput")) ).send_keys(expiry_date)
@@ -113,14 +114,19 @@ class BuyingHP(BaseTest):
                 EC.element_to_be_clickable((By.ID, "terms")))
             if not checkbox.is_selected():
                 checkbox.click()
-        # 19. click button
+         #19. click button
             self. wait.until (EC.element_to_be_clickable((By.ID, 'place_order'))).click()
-        #20. check excepted result - order number
-        order_number = ""
-        self.wait.until(EC.url_contains(order_number))
-        current_url = self.driver.current_url
-        self.assertIn(order_number, current_url)
-        print (f' Numer zamowienia to : {order_number}')
+
+
+        #20. Check expected results - card is expired, order number is not generated in url:
+        error_element = self.wait.until(
+            EC.visibility_of_element_located((By.CLASS_NAME, "woocommerce-error")) )
+        error_text = error_element.text
+
+        self.assertTrue( "przeszłości." in error_text or "expiry" in error_text.lower())
+        self.assertEqual( self.driver.current_url,"https://fakestore.testelka.pl/zamowienie/")
+
+
 
 
 

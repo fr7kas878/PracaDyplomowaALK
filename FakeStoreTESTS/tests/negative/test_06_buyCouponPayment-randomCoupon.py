@@ -36,7 +36,7 @@ class BuyingHP(BaseTest):
             ((By.CSS_SELECTOR, '.added_to_cart.wc-forward'))
         ).click()
 
-        # 5. enter a coupon code and click a button "Zastosuj kupoon"
+        # 5. enter a coupon code and click a button "Zastosuj kupon"
         # coupons from csv file
         file_path = os.path.join(os.path.dirname(__file__), '/FakeStoreTESTS/data/couponsTest.csv')
 
@@ -62,4 +62,3 @@ class BuyingHP(BaseTest):
         )
 
 
-    pass
