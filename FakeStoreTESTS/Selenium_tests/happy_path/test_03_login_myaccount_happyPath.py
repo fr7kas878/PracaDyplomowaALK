@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 from FakeStoreTESTS.data.userdata import *
-from happy_path.base_test import BaseTest
+from FakeStoreTESTS.Selenium_tests.happy_path.base_test import BaseTest
 from selenium.webdriver.support import expected_conditions as EC
 
 

@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-from happy_path.test_03_login_myaccount_happyPath import LogToMyAccount
+from FakeStoreTESTS.Selenium_tests.happy_path.test_03_login_myaccount_happyPath import LogToMyAccount
 
 class UsingWishlistOptions(LogToMyAccount):
 

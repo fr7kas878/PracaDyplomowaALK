@@ -1,10 +1,7 @@
 from selenium.webdriver.common.by import By
-from faker import Faker
-from FakeStoreTESTS.data.userdata import DataToLogIn
 from selenium.webdriver.support import expected_conditions as EC
-from happy_path.base_test import BaseTest
+from FakeStoreTESTS.Selenium_tests.happy_path.base_test import BaseTest
 import csv
-import os
 
 
 class BuyingHP(BaseTest):
@@ -39,7 +36,7 @@ class BuyingHP(BaseTest):
 
         # 5. enter a coupon code and click a button "Zastosuj kupoon"
         # 6. coupons from csv file
-        file_path = '/home/student/PycharmProjects/PracaDyplomowaALK/FakeStoreTESTS/data/couponsTest.csv'
+        file_path = '/FakeStoreTESTS/data/couponsTest.csv'
 
         # 7. take a random code
         with open(file_path, newline='') as csvfile:

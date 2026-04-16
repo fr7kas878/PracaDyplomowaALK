@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-from happy_path.base_test import BaseTest
+from FakeStoreTESTS.Selenium_tests.happy_path.base_test import BaseTest
 from FakeStoreTESTS.data.userdata import UserData
 import csv
 import random
@@ -35,7 +35,7 @@ class BuyingHP(BaseTest):
 
         # 5. enter a coupon code and click a button "Zastosuj kupon"
         # 6. use coupons from csv file
-        file_path = os.path.join(os.path.dirname(__file__),'/home/student/PycharmProjects/PracaDyplomowaALK/FakeStoreTESTS/data/couponsTest.csv')
+        file_path = os.path.join(os.path.dirname(__file__), '/FakeStoreTESTS/data/couponsTest.csv')
 
         # 7. take a valid code for this category
         with open(file_path, newline='') as csvfile:
@@ -91,7 +91,7 @@ class BuyingHP(BaseTest):
         self.driver.find_element(By.ID, 'billing_phone').send_keys(phone)
         # 15 FAKE CARD PAYMENT DATA
 
-        file_path = '/home/student/PycharmProjects/PracaDyplomowaALK/FakeStoreTESTS/data/credit_cards.csv'
+        file_path = '/FakeStoreTESTS/data/credit_cards.csv'
 
         with open(file_path, newline='') as csvfile:
             reader = list(csv.DictReader(csvfile))  # other csv reader with list option for random

@@ -1,8 +1,7 @@
 from selenium.webdriver.common.by import By
-from faker import Faker
 from FakeStoreTESTS.data.userdata import *
 from selenium.webdriver.support import expected_conditions as EC
-from happy_path.base_test import BaseTest
+from FakeStoreTESTS.Selenium_tests.happy_path.base_test import BaseTest
 
 class RegisterNewUser(BaseTest):
 

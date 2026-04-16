@@ -3,7 +3,7 @@ from faker import Faker
 
 from FakeStoreTESTS.data.userdata import UserData, DataToLogIn
 from selenium.webdriver.support import expected_conditions as EC
-from happy_path.base_test import BaseTest
+from FakeStoreTESTS.Selenium_tests.happy_path.base_test import BaseTest
 
 
 class RegisterValidateFields(BaseTest):
