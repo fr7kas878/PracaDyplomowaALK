@@ -1,19 +1,12 @@
 from selenium.webdriver.common.by import By
-from faker import Faker
 from FakeStoreTESTS.data.userdata import *
 from happy_path.base_test import BaseTest
 from selenium.webdriver.support import expected_conditions as EC
 
 
-class LogToMyAccount(BaseTest):
-    def setUp(self):
-        super().setUp()
-        self.faker = Faker()
+class BaseLogIn(BaseTest):
 
-    # @unittest.skip("Temporary skipping")
-    def test_login_existingaccount(self):
-
-    # case - log to my account - happy path
+    def login(self):  # możesz też wydzielić do wspólnej klasy bazowej
         #1.page Moje konto (menu)
         self.driver.find_element(By.XPATH, '//*[@id="menu-item-201"]').click()
         #2.email
@@ -24,12 +17,32 @@ class LogToMyAccount(BaseTest):
         self.driver.find_element(By.CLASS_NAME, 'show-password-input').click()
         #5.click button "Zaloguj"
         self.driver.find_element(By.CLASS_NAME, "woocommerce-form-login__submit").click()
-        #6.check expected result - link to log out is displayed
-
-        logout = self.wait.until(
-        EC.visibility_of_element_located((By.LINK_TEXT, "Wyloguj"))
+        #5a - check if you are logged properly
+        self.wait.until(
+            EC.visibility_of_element_located((By.CLASS_NAME, "woocommerce-MyAccount-content"))
         )
+
+
+class LogToMyAccount(BaseLogIn):
+    # @unittest.skip("Temporary skipping")
+    def test_login_existingaccount(self):
+        self.login()
+
+class LogOut(BaseLogIn):
+    def test_logOut(self):
+
+        # 🔥 najpierw login (test musi byc niezalezny)
+        self.login()
+
+        #6.check expected result - link to log out is displayed
+        logout = self.wait.until(
+            EC.visibility_of_element_located((By.LINK_TEXT, "Wyloguj")) )
         self.assertTrue(logout.is_displayed())
 
         #7. click button "Wyloguj" to log out
         self.driver.find_element(By.LINK_TEXT, "Wyloguj").click()
+
+        # 8. check expected result - user is logged out (login form is visible)
+        self.wait.until(
+            EC.visibility_of_element_located((By.NAME, "login")))
+        self.assertIn("moje-konto", self.driver.current_url)
