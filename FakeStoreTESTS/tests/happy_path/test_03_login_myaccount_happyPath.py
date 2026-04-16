@@ -25,13 +25,12 @@ class BaseLogIn(BaseTest):
 
 class LogToMyAccount(BaseLogIn):
     # @unittest.skip("Temporary skipping")
-    def test_login_existingaccount(self):
+    def login_existingaccount(self):
         self.login()
 
 class LogOut(BaseLogIn):
     def test_logOut(self):
-
-        # 🔥 najpierw login (test musi byc niezalezny)
+        #first go to login _> call actions from def login
         self.login()
 
         #6.check expected result - link to log out is displayed
