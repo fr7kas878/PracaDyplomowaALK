@@ -4,7 +4,6 @@ from TESTS.Selenium_tests.happy_path.base_test import BaseTest
 import csv
 import os
 
-
 class BuyingHP(BaseTest):
 
     def setUp(self):
