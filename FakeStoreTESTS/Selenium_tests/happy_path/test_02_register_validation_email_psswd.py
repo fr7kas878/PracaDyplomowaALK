@@ -22,7 +22,7 @@ class RegisterValidateFields(BaseTest):
             EC.element_to_be_clickable((By.XPATH, '//*[@id="menu-item-201"]'))
         ).click()
 
-        # 🔴 fix banner (może blokować klik)
+        # 1a - banner fix again
         try:
             self.driver.execute_script(
                 "document.querySelector('.woocommerce-store-notice')?.remove();"
@@ -30,7 +30,7 @@ class RegisterValidateFields(BaseTest):
         except:
             pass
 
-        #2.email wrong @@
+        #2.email wrong
         email_input = self.wait.until(
             EC.visibility_of_element_located((By.ID, 'reg_email'))
         )
