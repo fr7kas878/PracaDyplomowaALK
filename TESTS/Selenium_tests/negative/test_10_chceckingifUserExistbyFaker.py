@@ -1,5 +1,5 @@
 from data.userdata import UserData
-from pages import MyAccountPage
+from pages.MyAccountPage import MyAccountPage
 from selenium.webdriver.common.by import By
 from TESTS.Selenium_tests.happy_path.base_test import BaseTest
 

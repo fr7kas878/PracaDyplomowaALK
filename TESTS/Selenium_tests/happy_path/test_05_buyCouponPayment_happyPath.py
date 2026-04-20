@@ -13,7 +13,7 @@ class BuyingHP(BaseTest):
         super().setUp()
 
         self.BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
-        self.DATA_PATH = os.path.join(self.BASE_DIR, 'data')
+        self.DATA_PATH = os.path.join(self.BASE_DIR, 'PracaDyplomowaALK.data')
 
     def add_products_to_cart(self):
         # 1. primary menu on main page - click Sklep
