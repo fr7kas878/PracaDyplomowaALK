@@ -4,9 +4,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
+from FakeStoreTESTS.helpers.utilities import UIHelpers
 from faker import Faker
 import unittest
-
 
 class BaseTest(unittest.TestCase):
 
@@ -18,24 +18,21 @@ class BaseTest(unittest.TestCase):
         options.add_argument("--disable-extensions")
 
         self.driver = webdriver.Chrome(options=options)
-        # longer wait for better stability
+        self.ui = UIHelpers(self.driver)
         self.wait = WebDriverWait(self.driver, 10)
         self.faker = Faker()
         self.driver.get("https://fakestore.testelka.pl")
-        # force stable viewport
         self.driver.maximize_window()
 
         # close banner if appears
         try:
             self.wait.until(
-                EC.presence_of_element_located((By.CLASS_NAME, "woocommerce-store-notice"))
-            )
-            self.driver.execute_script("document.querySelector('.woocommerce-store-notice')?.remove();")
+                EC.presence_of_element_located((By.CLASS_NAME, "woocommerce-store-notice"))  )
+            self.driver.execute_script(
+                "document.querySelector('.woocommerce-store-notice')?.remove();"  )
         except:
             pass
 
-    # added "has attribute" with param 'driver' -> because of chrome unstability
     def tearDown(self):
         if hasattr(self, "driver"):
             self.driver.quit()
-
