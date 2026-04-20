@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from FakeStoreTESTS.Selenium_tests.happy_path.base_test import BaseTest
 import csv
+import os
 
 
 class BuyingHP(BaseTest):
@@ -24,10 +25,21 @@ class BuyingHP(BaseTest):
 
         products = ["386", "393", "391", "4116", "389"]
         for product_id in products:
-            self.wait.until(
-                EC.element_to_be_clickable((By.CSS_SELECTOR, f'[data-product_id="{product_id}"]'))
-            ).click()
 
+            # 3a. banner fix again
+            self.ui.hide_banner()
+
+            element = self.wait.until(
+                EC.element_to_be_clickable((By.CSS_SELECTOR, f'[data-product_id="{product_id}"]'))  )
+
+            # 3b. adding scroll
+            self.driver.execute_script("arguments[0].scrollIntoView(true);", element)
+
+            try:
+                element.click()
+            except:
+                # 3c. when you click on banner, force a click
+                self.driver.execute_script("arguments[0].click();", element)
         # 4.click button "Zobacz koszyk" to go to cart
         self.wait.until(
             EC.element_to_be_clickable
@@ -36,7 +48,11 @@ class BuyingHP(BaseTest):
 
         # 5. enter a coupon code and click a button "Zastosuj kupoon"
         # 6. coupons from csv file
-        file_path = '/FakeStoreTESTS/data/couponsTest.csv'
+
+        file_path = os.path.join(
+            os.path.dirname(__file__),
+            '../../data/couponsTest.csv'
+        )
 
         # 7. take a random code
         with open(file_path, newline='') as csvfile:
