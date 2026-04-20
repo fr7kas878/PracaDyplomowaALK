@@ -18,22 +18,38 @@ class BuyingHP(BaseTest):
     def add_products_to_cart(self):
         # 1. primary menu on main page - click Sklep
         self.driver.find_element(By.XPATH, '//*[@id="menu-item-198"]').click()
+
         # 2. choose a first category - windsurfing[1]
         element = self.wait.until(
-            EC.element_to_be_clickable((By.XPATH, '//*[@id="main"]/ul/li[1]//a')) )
+            EC.element_to_be_clickable((By.XPATH, '//*[@id="main"]/ul/li[1]//a')))
         element.click()
 
-        # 3. add to cart several products -->adding several products in a loop by product_id :
+        #2a. hide blocking banner
+        try:
+            banner = self.wait.until(
+                EC.presence_of_element_located((By.CLASS_NAME, "demo_store"))
+            )
+            self.driver.execute_script("arguments[0].style.display='none';", banner)
+        except:
+            pass  # banner not always present
 
+        # 3. add to cart several products -->adding several products in a loop by product_id :
         products = ["386", "393", "391", "4116", "389"]
+
         for product_id in products:
-            self.wait.until(
-                EC.element_to_be_clickable((By.CSS_SELECTOR, f'[data-product_id="{product_id}"]')) ).click()
+            element = self.wait.until(
+                EC.element_to_be_clickable((By.CSS_SELECTOR, f'[data-product_id="{product_id}"]'))  )
+
+            # 3a. scroll to element to avoid overlay errors
+            self.driver.execute_script("arguments[0].scrollIntoView(true);", element)
+
+            # 3b. fix dummy errors by adding wait
+            self.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, f'[data-product_id="{product_id}"]')))
+            element.click()
 
         # 4.click button "Zobacz koszyk" to go to cart
         self.wait.until(
-            EC.element_to_be_clickable
-            ((By.CSS_SELECTOR, '.added_to_cart.wc-forward')) ).click()
+            EC.element_to_be_clickable((By.CSS_SELECTOR, '.added_to_cart.wc-forward')) ).click()
 
     def apply_coupon(self):
         # 5. enter a coupon code and click a button "Zastosuj kupon"
@@ -63,14 +79,28 @@ class BuyingHP(BaseTest):
         self.assertIn('Kupon został pomyślnie użyty', actual_msg)
 
     def go_to_payment(self):
+        #first hide blocking banner again (page refresing cuser, it appears again)
+        try:
+            banner = self.wait.until(
+                EC.presence_of_element_located((By.CLASS_NAME, "demo_store"))
+            )
+            self.driver.execute_script("arguments[0].style.display='none';", banner)
+        except:
+            pass  # banner not always present
+
         # 12. Click a button "przejdz do platnosci"
-        self.wait.until(
-            EC.element_to_be_clickable((By.CSS_SELECTOR, '.checkout-button.button.alt.wc-forward'))).click()
+        element = self.wait.until(
+            EC.element_to_be_clickable((By.CSS_SELECTOR, '.checkout-button.button.alt.wc-forward')) )
+
+         #12a. scroll to avoid overlay errors
+        self.driver.execute_script("arguments[0].scrollIntoView(true);", element)
+
+        element.click()
+
         # 13. Check expected result - redirecting to subpage .../zamowienie/
         self.wait.until(EC.url_contains('zamowienie'))
         current_url = self.driver.current_url
         self.assertEqual(current_url, "https://fakestore.testelka.pl/zamowienie/")
-
     def fill_user_data(self):
         # 14. Fulfill an order data
         # 14a. email - from email generator
@@ -109,22 +139,39 @@ class BuyingHP(BaseTest):
             cvv = row["cvv"]
 
             print(f' W tym tescie wylosowano karte kredytowa o parametrach: {number}, {expiry_date}, {cvv}')
-        # 16.  iframe structure for private stripe like p-numberInput
+
+        # 16. iframe structure for private stripe like p-numberInput
         self.wait.until(
-            EC.frame_to_be_available_and_switch_to_it((By.CSS_SELECTOR, "iframe[name^='__privateStripeFrame']")))
+            EC.frame_to_be_available_and_switch_to_it((By.CSS_SELECTOR, "iframe[name^='__privateStripeFrame']"))
+        )
+
         # 17. data insert
         self.wait.until(EC.visibility_of_element_located((By.ID, "payment-numberInput"))).send_keys(number)
         self.wait.until(EC.visibility_of_element_located((By.ID, "payment-expiryInput"))).send_keys(expiry_date)
         self.wait.until(EC.visibility_of_element_located((By.ID, "payment-cvcInput"))).send_keys(cvv)
 
         # 18. checkbox - I accept terms of...
-        # back from iframe Stripe !
+        # 18a. back from iframe Stripe !
         self.driver.switch_to.default_content()
-        # click checkbox
+
+        #18b: hide blocking banner AGAIN
+        try:
+            banner = self.wait.until(
+                EC.presence_of_element_located((By.CLASS_NAME, "demo_store"))
+            )
+            self.driver.execute_script("arguments[0].style.display='none';", banner)
+        except:
+            pass
+
         checkbox = self.wait.until(
-            EC.element_to_be_clickable((By.ID, "terms")))
+            EC.element_to_be_clickable((By.ID, "terms"))  )
+
+        # 18.c - adding scroll to checkbox
+        self.driver.execute_script("arguments[0].scrollIntoView(true);", checkbox)
+
         if not checkbox.is_selected():
             checkbox.click()
+
         # 19. click button
         self.wait.until(EC.element_to_be_clickable((By.ID, 'place_order'))).click()
 
