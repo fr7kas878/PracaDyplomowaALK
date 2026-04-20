@@ -24,8 +24,6 @@ class BaseTest(unittest.TestCase):
         self.driver.get("https://fakestore.testelka.pl")
         # force stable viewport
         self.driver.maximize_window()
-        # zoom 67% for better stability
-        self.driver.execute_script("document.body.style.zoom='67%'")
 
         # close banner if appears
         try:
@@ -40,3 +38,4 @@ class BaseTest(unittest.TestCase):
     def tearDown(self):
         if hasattr(self, "driver"):
             self.driver.quit()
+
