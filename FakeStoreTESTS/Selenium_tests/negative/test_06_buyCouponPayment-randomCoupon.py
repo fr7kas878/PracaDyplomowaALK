@@ -4,7 +4,7 @@ from FakeStoreTESTS.Selenium_tests.happy_path.base_test import BaseTest
 import csv
 import os
 import random
-
+import time
 
 class BuyingHP(BaseTest):
 
@@ -15,30 +15,44 @@ class BuyingHP(BaseTest):
     def test_buy_coupon_payment(self):
         # 1. primary menu on main page - click Sklep
         self.driver.find_element(By.XPATH, '//*[@id="menu-item-198"]').click()
+        self.ui.hide_banner()
+
         # 2. choose a first category - windsurfing[1]
         element = self.wait.until(
-            EC.element_to_be_clickable((By.XPATH, '//*[@id="main"]/ul/li[1]//a'))
-        )
+            EC.element_to_be_clickable((By.XPATH, '//*[@id="main"]/ul/li[1]//a'))  )
         element.click()
 
         # 3. add to cart several products
         #adding several products in a loop by product_id :
 
         products = ["386", "393", "391", "4116", "389"]
+
         for product_id in products:
-            self.wait.until(
-                EC.element_to_be_clickable((By.CSS_SELECTOR, f'[data-product_id="{product_id}"]'))
-            ).click()
+
+            self.ui.hide_banner()
+
+            element = self.wait.until(
+                EC.element_to_be_clickable((By.CSS_SELECTOR, f'[data-product_id="{product_id}"]'))  )
+            self.driver.execute_script("arguments[0].scrollIntoView(true);", element)
+
+            try:
+                element.click()
+            except:
+                # when you click on the banner it should be executed click
+                self.driver.execute_script("arguments[0].click();", element)
+
+            time.sleep(0.5)
 
         # 4.click button "Zobacz koszyk" to go to cart
+        self.ui.hide_banner()
+
         self.wait.until(
-            EC.element_to_be_clickable
-            ((By.CSS_SELECTOR, '.added_to_cart.wc-forward'))
+            EC.element_to_be_clickable((By.CSS_SELECTOR, '.added_to_cart.wc-forward'))
         ).click()
 
         # 5. enter a coupon code and click a button "Zastosuj kupon"
         # coupons from csv file
-        file_path = os.path.join(os.path.dirname(__file__), '/FakeStoreTESTS/data/couponsTest.csv')
+        file_path = os.path.join(os.path.dirname(__file__), '../../data/couponsTest.csv')
 
         #random code
         with open(file_path, newline='') as csvfile:
@@ -48,17 +62,16 @@ class BuyingHP(BaseTest):
             coupon_code = random.choice(coupons)
             print(f"Wylosowany kupon w tym uruchomieniu testu: {coupon_code}")
 
-        self.wait.until(
-            EC.visibility_of_element_located((By.NAME,'coupon_code'))
-        ).send_keys(coupon_code)
+        self.ui.hide_banner()
 
         self.wait.until(
-            EC.element_to_be_clickable((By.NAME,'apply_coupon'))
-        ).click()
+            EC.visibility_of_element_located((By.NAME,'coupon_code'))  ).send_keys(coupon_code)
+
+        self.wait.until(
+            EC.element_to_be_clickable((By.NAME,'apply_coupon')) ).click()
 
         # .Check expected result: if the code is applied, message ""Kupon został pomyślnie użyty.
-        self.wait.until(
+        message = self.wait.until(
             EC.visibility_of_element_located((By.CLASS_NAME,'woocommerce-message' ))
         )
-
-
+        self.assertIn("Kupon został pomyślnie użyty", message.text)
