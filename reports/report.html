@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title id="head-title">report.html</title>
+      <link href="assets/style.css" rel="stylesheet" type="text/css"/>
+  </head>
+  <body>
+    <h1 id="title">report.html</h1>
+    <p>Report generated on 20-Apr-2026 at 21:09:24 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a>
+        v4.2.0</p>
+    <div id="environment-header">
+      <h2>Environment</h2>
+    </div>
+    <table id="environment"></table>
+    <!-- TEMPLATES -->
+      <template id="template_environment_row">
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </template>
+    <template id="template_results-table__body--empty">
+      <tbody class="results-table-row">
+        <tr id="not-found-message">
+          <td colspan="4">No results found. Check the filters.</td>
+        </tr>
+      </tbody>
+    </template>
+    <template id="template_results-table__tbody">
+      <tbody class="results-table-row">
+        <tr class="collapsible">
+        </tr>
+        <tr class="extras-row">
+          <td class="extra" colspan="4">
+            <div class="extraHTML"></div>
+            <div class="media">
+              <div class="media-container">
+                  <div class="media-container__nav--left">&lt;</div>
+                  <div class="media-container__viewport">
+                    <img src="" />
+                    <video controls>
+                      <source src="" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="media-container__nav--right">&gt;</div>
+                </div>
+                <div class="media__name"></div>
+                <div class="media__counter"></div>
+            </div>
+            <div class="logwrapper">
+              <div class="logexpander"></div>
+              <div class="log"></div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </template>
+    <!-- END TEMPLATES -->
+    <div class="summary">
+      <div class="summary__data">
+        <h2>Summary</h2>
+        <div class="additional-summary prefix">
+        </div>
+        <p class="run-count">20 tests took 00:05:08.</p>
+        <p class="filter">(Un)check the boxes to filter the results.</p>
+        <div class="summary__reload">
+          <div class="summary__reload__button hidden" onclick="location.reload()">
+            <div>There are still tests running. <br />Reload this page to get the latest results!</div>
+          </div>
+        </div>
+        <div class="summary__spacer"></div>
+        <div class="controls">
+          <div class="filters">
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="failed" >
+            <span class="failed">9 Failed,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="passed" >
+            <span class="passed">11 Passed,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="skipped" disabled>
+            <span class="skipped">0 Skipped,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="xfailed" disabled>
+            <span class="xfailed">0 Expected failures,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="xpassed" disabled>
+            <span class="xpassed">0 Unexpected passes,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="error" disabled>
+            <span class="error">0 Errors,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="rerun" disabled>
+            <span class="rerun">0 Reruns</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="retried" disabled>
+            <span class="retried">0 Retried,</span>
+          </div>
+          <div class="collapse">
+            <button id="show_all_details">Show all details</button>&nbsp;/&nbsp;<button id="hide_all_details">Hide all details</button>
+          </div>
+        </div>
+      </div>
+      <div class="additional-summary summary">
+      </div>
+      <div class="additional-summary postfix">
+      </div>
+    </div>
+    <table id="results-table">
+      <thead id="results-table-head">
+        <tr>
+          <th class="sortable" data-column-type="result">Result</th>
+          <th class="sortable" data-column-type="testId">Test</th>
+          <th class="sortable" data-column-type="duration">Duration</th>
+          <th>Links</th>
+        </tr>
+      </thead>
+    </table>
+  <footer>
+    <div id="data-container" data-jsonblob="{&#34;environment&#34;: {&#34;Python&#34;: &#34;3.12.3&#34;, &#34;Platform&#34;: &#34;Linux-6.17.0-20-generic-x86_64-with-glibc2.39&#34;, &#34;Packages&#34;: {&#34;pytest&#34;: &#34;9.0.3&#34;, &#34;pluggy&#34;: &#34;1.6.0&#34;}, &#34;Plugins&#34;: {&#34;Faker&#34;: &#34;40.11.1&#34;, &#34;metadata&#34;: &#34;3.1.1&#34;, &#34;html&#34;: &#34;4.2.0&#34;, &#34;allure-pytest&#34;: &#34;2.15.3&#34;}}, &#34;tests&#34;: {&#34;TESTS/Selenium_tests/happy_path/test_01_register_happyPath.py::RegisterNewUser::test_newuser_registration&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Passed&#34;, &#34;testId&#34;: &#34;TESTS/Selenium_tests/happy_path/test_01_register_happyPath.py::RegisterNewUser::test_newuser_registration&#34;, &#34;duration&#34;: &#34;00:00:26&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Passed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;TESTS/Selenium_tests/happy_path/test_01_register_happyPath.py::RegisterNewUser::test_newuser_registration&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;00:00:26&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;No log output captured.&#34;}], &#34;TESTS/Selenium_tests/happy_path/test_02_register_validation_email_psswd.py::RegisterValidateFields::test_invalid_email_browser_validation&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Failed&#34;, &#34;testId&#34;: &#34;TESTS/Selenium_tests/happy_path/test_02_register_validation_email_psswd.py::RegisterValidateFields::test_invalid_email_browser_validation&#34;, &#34;duration&#34;: &#34;00:00:19&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Failed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;TESTS/Selenium_tests/happy_path/test_02_register_validation_email_psswd.py::RegisterValidateFields::test_invalid_email_browser_validation&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;00:00:19&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;self = &amp;lt;test_02_register_validation_email_psswd.RegisterValidateFields testMethod=test_invalid_email_browser_validation&amp;gt;\n\n    def test_invalid_email_browser_validation(self):\n        driver = self.driver\n    \n        #1.page Moje konto (menu)\n        self.wait.until(\n            EC.element_to_be_clickable((By.XPATH, &amp;#x27;//*[@id=&amp;quot;menu-item-201&amp;quot;]&amp;#x27;))\n        ).click()\n    \n        # 1a - banner fix again\n        try:\n            self.driver.execute_script(\n                &amp;quot;document.querySelector(&amp;#x27;.woocommerce-store-notice&amp;#x27;)?.remove();&amp;quot;\n            )\n        except:\n            pass\n    \n        #2.email wrong\n        email_input = self.wait.until(\n            EC.visibility_of_element_located((By.ID, &amp;#x27;reg_email&amp;#x27;))\n        )\n&amp;gt;       email_input.send_keys(DataToLogIn.DATA2_WRONGEMAIL)\n                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: type object &amp;#x27;DataToLogIn&amp;#x27; has no attribute &amp;#x27;DATA2_WRONGEMAIL&amp;#x27;\n\nTESTS/Selenium_tests/happy_path/test_02_register_validation_email_psswd.py:37: AttributeError\n&#34;}], &#34;TESTS/Selenium_tests/happy_path/test_02_register_validation_email_psswd.py::RegisterValidateFields::test_short_password_validation&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Passed&#34;, &#34;testId&#34;: &#34;TESTS/Selenium_tests/happy_path/test_02_register_validation_email_psswd.py::RegisterValidateFields::test_short_password_validation&#34;, &#34;duration&#34;: &#34;00:00:10&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Passed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;TESTS/Selenium_tests/happy_path/test_02_register_validation_email_psswd.py::RegisterValidateFields::test_short_password_validation&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;00:00:10&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;No log output captured.&#34;}], &#34;TESTS/Selenium_tests/happy_path/test_03_login_myaccount_happyPath.py::LogOut::test_logOut&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Passed&#34;, &#34;testId&#34;: &#34;TESTS/Selenium_tests/happy_path/test_03_login_myaccount_happyPath.py::LogOut::test_logOut&#34;, &#34;duration&#34;: &#34;00:00:20&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Passed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;TESTS/Selenium_tests/happy_path/test_03_login_myaccount_happyPath.py::LogOut::test_logOut&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;00:00:20&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;No log output captured.&#34;}], &#34;TESTS/Selenium_tests/happy_path/test_04_login_lostpswd_reset.py::LostPasswordReset::test_login_lostpassword_reset&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Failed&#34;, &#34;testId&#34;: &#34;TESTS/Selenium_tests/happy_path/test_04_login_lostpswd_reset.py::LostPasswordReset::test_login_lostpassword_reset&#34;, &#34;duration&#34;: &#34;00:00:14&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Failed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;TESTS/Selenium_tests/happy_path/test_04_login_lostpswd_reset.py::LostPasswordReset::test_login_lostpassword_reset&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;00:00:14&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;self = &amp;lt;test_04_login_lostpswd_reset.LostPasswordReset testMethod=test_login_lostpassword_reset&amp;gt;\n\n    def test_login_lostpassword_reset(self):\n        # 1.page Moje konto (menu)\n        self.driver.find_element(By.XPATH, &amp;#x27;//*[@id=&amp;quot;menu-item-201&amp;quot;]&amp;#x27;).click()\n        # 2.email\n&amp;gt;       self.driver.find_element(By.ID, &amp;#x27;username&amp;#x27;).send_keys(DataToLogIn.DATA1_USEREXISTINGEMAIL)\n                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: type object &amp;#x27;DataToLogIn&amp;#x27; has no attribute &amp;#x27;DATA1_USEREXISTINGEMAIL&amp;#x27;\n\nTESTS/Selenium_tests/happy_path/test_04_login_lostpswd_reset.py:17: AttributeError\n&#34;}], &#34;TESTS/Selenium_tests/happy_path/test_05_buyCouponPayment_happyPath.py::BuyingHP::test_buy_coupon_payment&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Failed&#34;, &#34;testId&#34;: &#34;TESTS/Selenium_tests/happy_path/test_05_buyCouponPayment_happyPath.py::BuyingHP::test_buy_coupon_payment&#34;, &#34;duration&#34;: &#34;00:00:21&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Failed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;TESTS/Selenium_tests/happy_path/test_05_buyCouponPayment_happyPath.py::BuyingHP::test_buy_coupon_payment&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;00:00:21&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;self = &amp;lt;test_05_buyCouponPayment_happyPath.BuyingHP testMethod=test_buy_coupon_payment&amp;gt;\n\n    def test_buy_coupon_payment(self):\n        self.add_products_to_cart()\n&amp;gt;       self.apply_coupon()\n\nTESTS/Selenium_tests/happy_path/test_05_buyCouponPayment_happyPath.py:189: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = &amp;lt;test_05_buyCouponPayment_happyPath.BuyingHP testMethod=test_buy_coupon_payment&amp;gt;\n\n    def apply_coupon(self):\n        # 5. enter a coupon code and click a button &amp;quot;Zastosuj kupon&amp;quot;\n        # 6. use coupons from csv file\n        file_path = os.path.join(self.DATA_PATH, &amp;#x27;couponsTest.csv&amp;#x27;)\n        # 7. take a valid code for this category\n&amp;gt;       with open(file_path, newline=&amp;#x27;&amp;#x27;) as csvfile:\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       FileNotFoundError: [Errno 2] No such file or directory: &amp;#x27;/home/student/PycharmProjects/PracaDyplomowaALK/TESTS/data/couponsTest.csv&amp;#x27;\n\nTESTS/Selenium_tests/happy_path/test_05_buyCouponPayment_happyPath.py:59: FileNotFoundError\n&#34;}], &#34;TESTS/Selenium_tests/happy_path/test_09_usingWishlistOptions.py::UsingWishlistOptions::test_addingToWishlist&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Passed&#34;, &#34;testId&#34;: &#34;TESTS/Selenium_tests/happy_path/test_09_usingWishlistOptions.py::UsingWishlistOptions::test_addingToWishlist&#34;, &#34;duration&#34;: &#34;00:00:30&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Passed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;TESTS/Selenium_tests/happy_path/test_09_usingWishlistOptions.py::UsingWishlistOptions::test_addingToWishlist&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;00:00:30&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;No log output captured.&#34;}], &#34;TESTS/Selenium_tests/happy_path/test_11_Pricesofproducts.py::PriceTest::test_check_prices&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Passed&#34;, &#34;testId&#34;: &#34;TESTS/Selenium_tests/happy_path/test_11_Pricesofproducts.py::PriceTest::test_check_prices&#34;, &#34;duration&#34;: &#34;00:00:09&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Passed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;TESTS/Selenium_tests/happy_path/test_11_Pricesofproducts.py::PriceTest::test_check_prices&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;00:00:09&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;----------------------------- Captured stdout call -----------------------------\nPASSED: Wakacje z yog\u0105 w Kraju Kwitn\u0105cej Wi\u015bni is on sale. Old: 4599.0, New: 4299.0\n&#34;}], &#34;TESTS/Selenium_tests/happy_path/test_12_zeroQtyUpdateCart.py::ProductsInCart::test_add_to_cart&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Failed&#34;, &#34;testId&#34;: &#34;TESTS/Selenium_tests/happy_path/test_12_zeroQtyUpdateCart.py::ProductsInCart::test_add_to_cart&#34;, &#34;duration&#34;: &#34;00:00:20&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Failed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;TESTS/Selenium_tests/happy_path/test_12_zeroQtyUpdateCart.py::ProductsInCart::test_add_to_cart&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;00:00:20&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;self = &amp;lt;test_12_zeroQtyUpdateCart.ProductsInCart testMethod=test_add_to_cart&amp;gt;\n\n    def test_add_to_cart(self):\n        # 1. primary menu on main page - click Sklep\n        self.driver.find_element(By.XPATH, &amp;#x27;//*[@id=&amp;quot;menu-item-198&amp;quot;]&amp;#x27;).click()\n    \n        # 2. choose a first category - windsurfing[1]\n        element = self.wait.until(\n            EC.element_to_be_clickable((By.XPATH, &amp;#x27;//*[@id=&amp;quot;main&amp;quot;]/ul/li[1]//a&amp;#x27;))\n        )\n        element.click()\n    \n        # --- hide banner after navigation ---\n&amp;gt;       self.ui.hide_banner()\n        ^^^^^^^^^^^^^^^^^^^\nE       AttributeError: &amp;#x27;UIHelpers&amp;#x27; object has no attribute &amp;#x27;hide_banner&amp;#x27;\n\nTESTS/Selenium_tests/happy_path/test_12_zeroQtyUpdateCart.py:23: AttributeError\n&#34;}], &#34;TESTS/Selenium_tests/negative/test_06_buyCouponPayment-randomCoupon.py::BuyingHP::test_buy_coupon_payment&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Failed&#34;, &#34;testId&#34;: &#34;TESTS/Selenium_tests/negative/test_06_buyCouponPayment-randomCoupon.py::BuyingHP::test_buy_coupon_payment&#34;, &#34;duration&#34;: &#34;00:00:16&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Failed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;TESTS/Selenium_tests/negative/test_06_buyCouponPayment-randomCoupon.py::BuyingHP::test_buy_coupon_payment&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;00:00:16&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;self = &amp;lt;test_06_buyCouponPayment-randomCoupon.BuyingHP testMethod=test_buy_coupon_payment&amp;gt;\n\n    def test_buy_coupon_payment(self):\n        # 1. primary menu on main page - click Sklep\n        self.driver.find_element(By.XPATH, &amp;#x27;//*[@id=&amp;quot;menu-item-198&amp;quot;]&amp;#x27;).click()\n&amp;gt;       self.ui.hide_banner()\n        ^^^^^^^^^^^^^^^^^^^\nE       AttributeError: &amp;#x27;UIHelpers&amp;#x27; object has no attribute &amp;#x27;hide_banner&amp;#x27;\n\nTESTS/Selenium_tests/negative/test_06_buyCouponPayment-randomCoupon.py:18: AttributeError\n&#34;}], &#34;TESTS/Selenium_tests/negative/test_07_couponExpired.py::BuyingHP::test_buy_coupon_payment&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Failed&#34;, &#34;testId&#34;: &#34;TESTS/Selenium_tests/negative/test_07_couponExpired.py::BuyingHP::test_buy_coupon_payment&#34;, &#34;duration&#34;: &#34;00:00:32&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Failed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;TESTS/Selenium_tests/negative/test_07_couponExpired.py::BuyingHP::test_buy_coupon_payment&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;00:00:32&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;self = &amp;lt;test_07_couponExpired.BuyingHP testMethod=test_buy_coupon_payment&amp;gt;\n\n    def test_buy_coupon_payment(self):\n        # 1. primary menu on main page - click Sklep\n        self.driver.find_element(By.XPATH, &amp;#x27;//*[@id=&amp;quot;menu-item-198&amp;quot;]&amp;#x27;).click()\n        # 2. choose a first category - windsurfing[1]\n        element = self.wait.until(\n            EC.element_to_be_clickable((By.XPATH, &amp;#x27;//*[@id=&amp;quot;main&amp;quot;]/ul/li[1]//a&amp;#x27;))\n        )\n        element.click()\n    \n        # 3. add to cart several products\n        #adding several products in a loop by product_id :\n    \n        products = [&amp;quot;386&amp;quot;, &amp;quot;393&amp;quot;, &amp;quot;391&amp;quot;, &amp;quot;4116&amp;quot;, &amp;quot;389&amp;quot;]\n        for product_id in products:\n    \n            # 3a. banner fix again\n&amp;gt;           self.ui.hide_banner()\n            ^^^^^^^^^^^^^^^^^^^\nE           AttributeError: &amp;#x27;UIHelpers&amp;#x27; object has no attribute &amp;#x27;hide_banner&amp;#x27;\n\nTESTS/Selenium_tests/negative/test_07_couponExpired.py:30: AttributeError\n&#34;}], &#34;TESTS/Selenium_tests/negative/test_08_payment_error.py::BuyingHP::test_payment_error&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Failed&#34;, &#34;testId&#34;: &#34;TESTS/Selenium_tests/negative/test_08_payment_error.py::BuyingHP::test_payment_error&#34;, &#34;duration&#34;: &#34;00:00:25&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Failed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;TESTS/Selenium_tests/negative/test_08_payment_error.py::BuyingHP::test_payment_error&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;00:00:25&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;self = &amp;lt;test_08_payment_error.BuyingHP testMethod=test_payment_error&amp;gt;\n\n    def test_payment_error(self):\n    \n        def safe_hide_banner():\n            try:\n                self.driver.execute_script(&amp;quot;&amp;quot;&amp;quot;\n                    let el = document.querySelector(&amp;#x27;.woocommerce-store-notice&amp;#x27;);\n                    if (el) { el.style.display=&amp;#x27;none&amp;#x27;; }\n                &amp;quot;&amp;quot;&amp;quot;)\n            except:\n                pass\n    \n        # 1. primary menu on main page - click Sklep\n        safe_hide_banner()\n        self.driver.find_element(By.XPATH, &amp;#x27;//*[@id=&amp;quot;menu-item-198&amp;quot;]&amp;#x27;).click()\n    \n        # 2. choose a first category - windsurfing[1]\n        element = self.wait.until(\n            EC.element_to_be_clickable((By.XPATH, &amp;#x27;//*[@id=&amp;quot;main&amp;quot;]/ul/li[1]//a&amp;#x27;))\n        )\n        element.click()\n    \n        # 3. add to cart several products\n        products = [&amp;quot;386&amp;quot;, &amp;quot;393&amp;quot;, &amp;quot;391&amp;quot;, &amp;quot;4116&amp;quot;, &amp;quot;389&amp;quot;]\n    \n        for product_id in products:\n    \n            safe_hide_banner()\n    \n            element = self.wait.until(\n                EC.element_to_be_clickable((By.CSS_SELECTOR, f&amp;#x27;[data-product_id=&amp;quot;{product_id}&amp;quot;]&amp;#x27;))\n            )\n    \n            self.driver.execute_script(&amp;quot;arguments[0].scrollIntoView(true);&amp;quot;, element)\n    \n            try:\n                element.click()\n            except:\n                self.driver.execute_script(&amp;quot;arguments[0].click();&amp;quot;, element)\n    \n        # 4.click button &amp;quot;Zobacz koszyk&amp;quot; to go to cart\n        safe_hide_banner()\n    \n        self.wait.until(\n            EC.element_to_be_clickable((By.CSS_SELECTOR, &amp;#x27;.added_to_cart.wc-forward&amp;#x27;))\n        ).click()\n    \n        # 5. enter a coupon code and click a button &amp;quot;Zastosuj kupon&amp;quot;\n        file_path = os.path.join(os.path.dirname(__file__), &amp;#x27;../../../data/couponsTest.csv&amp;#x27;)\n    \n        with open(file_path, newline=&amp;#x27;&amp;#x27;) as csvfile:\n            reader = csv.reader(csvfile)\n            rows = list(reader)\n            coupon_code = rows[7][0]\n    \n        print(f&amp;#x27; W tym tescie wybieramy kod dla kategorii windsurfing &amp;quot; {coupon_code} &amp;quot;- test pozytywny&amp;#x27;)\n    \n        self.wait.until(\n            EC.visibility_of_element_located((By.NAME,&amp;#x27;coupon_code&amp;#x27;)) ).send_keys(coupon_code)\n        self.wait.until(\n            EC.element_to_be_clickable((By.NAME,&amp;#x27;apply_coupon&amp;#x27;))  ).click()\n    \n        message_element = self.wait.until(\n            EC.visibility_of_element_located((By.CLASS_NAME,&amp;#x27;woocommerce-message&amp;#x27;))  )\n        actual_msg = message_element.text\n        self.assertIn(&amp;#x27;Kupon zosta\u0142 pomy\u015blnie u\u017cyty&amp;#x27;, actual_msg)\n    \n        # 12. Click a button &amp;quot;przejdz do platnosci&amp;quot;\n        safe_hide_banner()\n        self.driver.execute_script(&amp;quot;window.scrollTo(0, document.body.scrollHeight);&amp;quot;)\n        self.wait.until(\n&amp;gt;           EC.element_to_be_clickable((By.CSS_SELECTOR, &amp;#x27;.checkout-button.button.alt.wc-forward&amp;#x27;)) ).click()\n                                                                                                      ^^^^^^^\n\nTESTS/Selenium_tests/negative/test_08_payment_error.py:86: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n.venv/lib/python3.12/site-packages/selenium/webdriver/remote/webelement.py:114: in click\n    self._execute(Command.CLICK_ELEMENT)\n.venv/lib/python3.12/site-packages/selenium/webdriver/remote/webelement.py:508: in _execute\n    return self._parent.execute(command, params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n.venv/lib/python3.12/site-packages/selenium/webdriver/remote/webdriver.py:446: in execute\n    self.error_handler.check_response(response)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = &amp;lt;selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x7bb3152cc560&amp;gt;\nresponse = {&amp;#x27;status&amp;#x27;: 400, &amp;#x27;value&amp;#x27;: &amp;#x27;{&amp;quot;value&amp;quot;:{&amp;quot;error&amp;quot;:&amp;quot;element click intercepted&amp;quot;,&amp;quot;message&amp;quot;:&amp;quot;element click intercepted: Element ...\\\\n#18 0x5560a1056197 \\\\u003Cunknown&amp;gt;\\\\n#19 0x73598623baa4 \\\\u003Cunknown&amp;gt;\\\\n#20 0x7359862c8c6c \\\\u003Cunknown&amp;gt;\\\\n&amp;quot;}}&amp;#x27;}\n\n    def check_response(self, response: dict[str, Any]) -&amp;gt; None:\n        &amp;quot;&amp;quot;&amp;quot;Check that a JSON response from the WebDriver does not have an error.\n    \n        Args:\n            response: The JSON response from the WebDriver server as a dictionary\n                object.\n    \n        Raises:\n            WebDriverException: If the response contains an error message.\n        &amp;quot;&amp;quot;&amp;quot;\n        status = response.get(&amp;quot;status&amp;quot;, None)\n        if not status or status == ErrorCode.SUCCESS:\n            return\n        value = None\n        message = response.get(&amp;quot;message&amp;quot;, &amp;quot;&amp;quot;)\n        screen: str = response.get(&amp;quot;screen&amp;quot;, &amp;quot;&amp;quot;)\n        stacktrace = None\n        if isinstance(status, int):\n            value_json = response.get(&amp;quot;value&amp;quot;, None)\n            if value_json and isinstance(value_json, str):\n                try:\n                    value = json.loads(value_json)\n                    if isinstance(value, dict):\n                        if len(value) == 1:\n                            value = value[&amp;quot;value&amp;quot;]\n                        status = value.get(&amp;quot;error&amp;quot;, None)\n                        if not status:\n                            status = value.get(&amp;quot;status&amp;quot;, ErrorCode.UNKNOWN_ERROR)\n                            message = value.get(&amp;quot;value&amp;quot;) or value.get(&amp;quot;message&amp;quot;)\n                            if not isinstance(message, str):\n                                value = message\n                                message = message.get(&amp;quot;message&amp;quot;) if isinstance(message, dict) else None\n                        else:\n                            message = value.get(&amp;quot;message&amp;quot;, None)\n                except ValueError:\n                    pass\n    \n        exception_class: type[WebDriverException]\n        e = ErrorCode()\n        error_codes = [item for item in dir(e) if not item.startswith(&amp;quot;__&amp;quot;)]\n        for error_code in error_codes:\n            error_info = getattr(ErrorCode, error_code)\n            if isinstance(error_info, list) and status in error_info:\n                exception_class = getattr(ExceptionMapping, error_code, WebDriverException)\n                break\n        else:\n            exception_class = WebDriverException\n    \n        if not value:\n            value = response[&amp;quot;value&amp;quot;]\n        if isinstance(value, str):\n            raise exception_class(value)\n        if message == &amp;quot;&amp;quot; and &amp;quot;message&amp;quot; in value:\n            message = value[&amp;quot;message&amp;quot;]\n    \n        screen = None  # type: ignore[assignment]\n        if &amp;quot;screen&amp;quot; in value:\n            screen = value[&amp;quot;screen&amp;quot;]\n    \n        stacktrace = None\n        st_value = value.get(&amp;quot;stackTrace&amp;quot;) or value.get(&amp;quot;stacktrace&amp;quot;)\n        if st_value:\n            if isinstance(st_value, str):\n                stacktrace = st_value.split(&amp;quot;\\n&amp;quot;)\n            else:\n                stacktrace = []\n                try:\n                    for frame in st_value:\n                        line = frame.get(&amp;quot;lineNumber&amp;quot;, &amp;quot;&amp;quot;)\n                        file = frame.get(&amp;quot;fileName&amp;quot;, &amp;quot;&amp;lt;anonymous&amp;gt;&amp;quot;)\n                        if line:\n                            file = f&amp;quot;{file}:{line}&amp;quot;\n                        meth = frame.get(&amp;quot;methodName&amp;quot;, &amp;quot;&amp;lt;anonymous&amp;gt;&amp;quot;)\n                        if &amp;quot;className&amp;quot; in frame:\n                            meth = f&amp;quot;{frame[&amp;#x27;className&amp;#x27;]}.{meth}&amp;quot;\n                        msg = &amp;quot;    at %s (%s)&amp;quot;\n                        msg = msg % (meth, file)\n                        stacktrace.append(msg)\n                except TypeError:\n                    pass\n        if exception_class == UnexpectedAlertPresentException:\n            alert_text = None\n            if &amp;quot;data&amp;quot; in value:\n                alert_text = value[&amp;quot;data&amp;quot;].get(&amp;quot;text&amp;quot;)\n            elif &amp;quot;alert&amp;quot; in value:\n                alert_text = value[&amp;quot;alert&amp;quot;].get(&amp;quot;text&amp;quot;)\n            raise exception_class(message, screen, stacktrace, alert_text)  # type: ignore[call-arg]  # mypy is not smart enough here\n&amp;gt;       raise exception_class(message, screen, stacktrace)\nE       selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element &amp;lt;a href=&amp;quot;https://fakestore.testelka.pl/zamowienie/&amp;quot; class=&amp;quot;checkout-button button alt wc-forward&amp;quot;&amp;gt;...&amp;lt;/a&amp;gt; is not clickable at point (998, 854). Other element would receive the click: &amp;lt;td colspan=&amp;quot;6&amp;quot; class=&amp;quot;actions&amp;quot;&amp;gt;...&amp;lt;/td&amp;gt;\nE         (Session info: chrome=146.0.7680.80); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception\nE       Stacktrace:\nE       #0 0x5560a10577aa &amp;lt;unknown&amp;gt;\nE       #1 0x5560a0a8a715 &amp;lt;unknown&amp;gt;\nE       #2 0x5560a0ae3abb &amp;lt;unknown&amp;gt;\nE       #3 0x5560a0ae16f2 &amp;lt;unknown&amp;gt;\nE       #4 0x5560a0adec09 &amp;lt;unknown&amp;gt;\nE       #5 0x5560a0addcf7 &amp;lt;unknown&amp;gt;\nE       #6 0x5560a0ad1de2 &amp;lt;unknown&amp;gt;\nE       #7 0x5560a0ad1728 &amp;lt;unknown&amp;gt;\nE       #8 0x5560a0b246d4 &amp;lt;unknown&amp;gt;\nE       #9 0x5560a0acff34 &amp;lt;unknown&amp;gt;\nE       #10 0x5560a0ad0cf1 &amp;lt;unknown&amp;gt;\nE       #11 0x5560a101bf92 &amp;lt;unknown&amp;gt;\nE       #12 0x5560a101ef1e &amp;lt;unknown&amp;gt;\nE       #13 0x5560a1009f02 &amp;lt;unknown&amp;gt;\nE       #14 0x5560a101f6b9 &amp;lt;unknown&amp;gt;\nE       #15 0x5560a0ff2957 &amp;lt;unknown&amp;gt;\nE       #16 0x5560a1044c88 &amp;lt;unknown&amp;gt;\nE       #17 0x5560a1044eb3 &amp;lt;unknown&amp;gt;\nE       #18 0x5560a1056197 &amp;lt;unknown&amp;gt;\nE       #19 0x73598623baa4 &amp;lt;unknown&amp;gt;\nE       #20 0x7359862c8c6c &amp;lt;unknown&amp;gt;\n\n.venv/lib/python3.12/site-packages/selenium/webdriver/remote/errorhandler.py:232: ElementClickInterceptedException\n\n----------------------------- Captured stdout call -----------------------------\n W tym tescie wybieramy kod dla kategorii windsurfing &amp;quot; windsurfing350  &amp;quot;- test pozytywny\n&#34;}], &#34;TESTS/Selenium_tests/negative/test_10_chceckingifUserExistbyFaker.py::RegisterNewUser::test_existing_user_registration&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Failed&#34;, &#34;testId&#34;: &#34;TESTS/Selenium_tests/negative/test_10_chceckingifUserExistbyFaker.py::RegisterNewUser::test_existing_user_registration&#34;, &#34;duration&#34;: &#34;00:00:10&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Failed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;TESTS/Selenium_tests/negative/test_10_chceckingifUserExistbyFaker.py::RegisterNewUser::test_existing_user_registration&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;00:00:10&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;self = &amp;lt;test_10_chceckingifUserExistbyFaker.RegisterNewUser testMethod=test_existing_user_registration&amp;gt;\n\n    def setUp(self):\n        super().setUp()\n&amp;gt;       self.page = MyAccountPage(self.driver, self.wait)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       TypeError: &amp;#x27;module&amp;#x27; object is not callable\n\nTESTS/Selenium_tests/negative/test_10_chceckingifUserExistbyFaker.py:12: TypeError\n&#34;}], &#34;TESTS/Selenium_tests/negative/test_10_chceckingifUserExistbyFaker.py::RegisterNewUser::test_newuser_registration&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Failed&#34;, &#34;testId&#34;: &#34;TESTS/Selenium_tests/negative/test_10_chceckingifUserExistbyFaker.py::RegisterNewUser::test_newuser_registration&#34;, &#34;duration&#34;: &#34;00:00:14&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Failed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;TESTS/Selenium_tests/negative/test_10_chceckingifUserExistbyFaker.py::RegisterNewUser::test_newuser_registration&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;00:00:14&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;self = &amp;lt;test_10_chceckingifUserExistbyFaker.RegisterNewUser testMethod=test_newuser_registration&amp;gt;\n\n    def setUp(self):\n        super().setUp()\n&amp;gt;       self.page = MyAccountPage(self.driver, self.wait)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       TypeError: &amp;#x27;module&amp;#x27; object is not callable\n\nTESTS/Selenium_tests/negative/test_10_chceckingifUserExistbyFaker.py:12: TypeError\n&#34;}], &#34;TESTS/Playwright_tests/responsiveness/test_14_desktop_3browsers.py::test_chromium_responsiveness&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Passed&#34;, &#34;testId&#34;: &#34;TESTS/Playwright_tests/responsiveness/test_14_desktop_3browsers.py::test_chromium_responsiveness&#34;, &#34;duration&#34;: &#34;00:00:04&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Passed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;TESTS/Playwright_tests/responsiveness/test_14_desktop_3browsers.py::test_chromium_responsiveness&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;00:00:04&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;No log output captured.&#34;}], &#34;TESTS/Playwright_tests/responsiveness/test_14_desktop_3browsers.py::test_firefox_responsiveness&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Passed&#34;, &#34;testId&#34;: &#34;TESTS/Playwright_tests/responsiveness/test_14_desktop_3browsers.py::test_firefox_responsiveness&#34;, &#34;duration&#34;: &#34;00:00:10&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Passed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;TESTS/Playwright_tests/responsiveness/test_14_desktop_3browsers.py::test_firefox_responsiveness&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;00:00:10&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;No log output captured.&#34;}], &#34;TESTS/Playwright_tests/responsiveness/test_14_desktop_3browsers.py::test_webkit_safari_responsiveness&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Passed&#34;, &#34;testId&#34;: &#34;TESTS/Playwright_tests/responsiveness/test_14_desktop_3browsers.py::test_webkit_safari_responsiveness&#34;, &#34;duration&#34;: &#34;00:00:04&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Passed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;TESTS/Playwright_tests/responsiveness/test_14_desktop_3browsers.py::test_webkit_safari_responsiveness&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;00:00:04&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;No log output captured.&#34;}], &#34;TESTS/Playwright_tests/responsiveness/test_15_mobile_iphone14ProMax.py::test_iphone_14_promax_responsiveness&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Passed&#34;, &#34;testId&#34;: &#34;TESTS/Playwright_tests/responsiveness/test_15_mobile_iphone14ProMax.py::test_iphone_14_promax_responsiveness&#34;, &#34;duration&#34;: &#34;00:00:10&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Passed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;TESTS/Playwright_tests/responsiveness/test_15_mobile_iphone14ProMax.py::test_iphone_14_promax_responsiveness&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;00:00:10&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;No log output captured.&#34;}], &#34;TESTS/Playwright_tests/responsiveness/test_15_mobile_iphone14ProMax.py::test_ecommerce_sanity_check&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Passed&#34;, &#34;testId&#34;: &#34;TESTS/Playwright_tests/responsiveness/test_15_mobile_iphone14ProMax.py::test_ecommerce_sanity_check&#34;, &#34;duration&#34;: &#34;00:00:09&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Passed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;TESTS/Playwright_tests/responsiveness/test_15_mobile_iphone14ProMax.py::test_ecommerce_sanity_check&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;00:00:09&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;No log output captured.&#34;}], &#34;TESTS/Playwright_tests/responsiveness/test_16_tablet_iPadMini.py::test_ipad_mini_responsiveness&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Passed&#34;, &#34;testId&#34;: &#34;TESTS/Playwright_tests/responsiveness/test_16_tablet_iPadMini.py::test_ipad_mini_responsiveness&#34;, &#34;duration&#34;: &#34;00:00:04&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Passed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;TESTS/Playwright_tests/responsiveness/test_16_tablet_iPadMini.py::test_ipad_mini_responsiveness&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;00:00:04&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;No log output captured.&#34;}]}, &#34;renderCollapsed&#34;: [&#34;passed&#34;], &#34;initialSort&#34;: &#34;result&#34;, &#34;title&#34;: &#34;report.html&#34;}"></div>
+    <script>
+      (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+const { getCollapsedCategory, setCollapsedIds } = require('./storage.js')
+
+class DataManager {
+    setManager(data) {
+        const collapsedCategories = [...getCollapsedCategory(data.renderCollapsed)]
+        const collapsedIds = []
+        const tests = Object.values(data.tests).flat().map((test, index) => {
+            const collapsed = collapsedCategories.includes(test.result.toLowerCase())
+            const id = `test_${index}`
+            if (collapsed) {
+                collapsedIds.push(id)
+            }
+            return {
+                ...test,
+                id,
+                collapsed,
+            }
+        })
+        const dataBlob = { ...data, tests }
+        this.data = { ...dataBlob }
+        this.renderData = { ...dataBlob }
+        setCollapsedIds(collapsedIds)
+    }
+
+    get allData() {
+        return { ...this.data }
+    }
+
+    resetRender() {
+        this.renderData = { ...this.data }
+    }
+
+    setRender(data) {
+        this.renderData.tests = [...data]
+    }
+
+    toggleCollapsedItem(id) {
+        this.renderData.tests = this.renderData.tests.map((test) =>
+            test.id === id ? { ...test, collapsed: !test.collapsed } : test,
+        )
+    }
+
+    set allCollapsed(collapsed) {
+        this.renderData = { ...this.renderData, tests: [...this.renderData.tests.map((test) => (
+            { ...test, collapsed }
+        ))] }
+    }
+
+    get testSubset() {
+        return [...this.renderData.tests]
+    }
+
+    get environment() {
+        return this.renderData.environment
+    }
+
+    get initialSort() {
+        return this.data.initialSort
+    }
+}
+
+module.exports = {
+    manager: new DataManager(),
+}
+
+},{"./storage.js":8}],2:[function(require,module,exports){
+const mediaViewer = require('./mediaviewer.js')
+const templateEnvRow = document.getElementById('template_environment_row')
+const templateResult = document.getElementById('template_results-table__tbody')
+
+function htmlToElements(html) {
+    const temp = document.createElement('template')
+    temp.innerHTML = html
+    return temp.content.childNodes
+}
+
+const find = (selector, elem) => {
+    if (!elem) {
+        elem = document
+    }
+    return elem.querySelector(selector)
+}
+
+const findAll = (selector, elem) => {
+    if (!elem) {
+        elem = document
+    }
+    return [...elem.querySelectorAll(selector)]
+}
+
+const dom = {
+    getStaticRow: (key, value) => {
+        const envRow = templateEnvRow.content.cloneNode(true)
+        const isObj = typeof value === 'object' && value !== null
+        const values = isObj ? Object.keys(value).map((k) => `${k}: ${value[k]}`) : null
+
+        const valuesElement = htmlToElements(
+            values ? `<ul>${values.map((val) => `<li>${val}</li>`).join('')}<ul>` : `<div>${value}</div>`)[0]
+        const td = findAll('td', envRow)
+        td[0].textContent = key
+        td[1].appendChild(valuesElement)
+
+        return envRow
+    },
+    getResultTBody: ({ testId, id, log, extras, resultsTableRow, tableHtml, result, collapsed }) => {
+        const resultBody = templateResult.content.cloneNode(true)
+        resultBody.querySelector('tbody').classList.add(result.toLowerCase())
+        resultBody.querySelector('tbody').id = testId
+        resultBody.querySelector('.collapsible').dataset.id = id
+
+        resultsTableRow.forEach((html) => {
+            const t = document.createElement('template')
+            t.innerHTML = html
+            resultBody.querySelector('.collapsible').appendChild(t.content)
+        })
+
+        if (log) {
+            // Wrap lines starting with "E" with span.error to color those lines red
+            const wrappedLog = log.replace(/^E.*$/gm, (match) => `<span class="error">${match}</span>`)
+            resultBody.querySelector('.log').innerHTML = wrappedLog
+        } else {
+            resultBody.querySelector('.log').remove()
+        }
+
+        if (collapsed) {
+            resultBody.querySelector('.collapsible > .col-result')?.classList.add('collapsed')
+            resultBody.querySelector('.extras-row').classList.add('hidden')
+        } else {
+            resultBody.querySelector('.collapsible > .col-result')?.classList.remove('collapsed')
+        }
+
+        const media = []
+        extras?.forEach(({ name, format_type, content }) => {
+            if (['image', 'video'].includes(format_type)) {
+                media.push({ path: content, name, format_type })
+            }
+
+            if (format_type === 'html') {
+                resultBody.querySelector('.extraHTML').insertAdjacentHTML('beforeend', `<div>${content}</div>`)
+            }
+        })
+        mediaViewer.setup(resultBody, media)
+
+        // Add custom html from the pytest_html_results_table_html hook
+        tableHtml?.forEach((item) => {
+            resultBody.querySelector('td[class="extra"]').insertAdjacentHTML('beforeend', item)
+        })
+
+        return resultBody
+    },
+}
+
+module.exports = {
+    dom,
+    htmlToElements,
+    find,
+    findAll,
+}
+
+},{"./mediaviewer.js":6}],3:[function(require,module,exports){
+const { manager } = require('./datamanager.js')
+const { doSort } = require('./sort.js')
+const storageModule = require('./storage.js')
+
+const getFilteredSubSet = (filter) =>
+    manager.allData.tests.filter(({ result }) => filter.includes(result.toLowerCase()))
+
+const doInitFilter = () => {
+    const currentFilter = storageModule.getVisible()
+    const filteredSubset = getFilteredSubSet(currentFilter)
+    manager.setRender(filteredSubset)
+}
+
+const doFilter = (type, show) => {
+    if (show) {
+        storageModule.showCategory(type)
+    } else {
+        storageModule.hideCategory(type)
+    }
+
+    const currentFilter = storageModule.getVisible()
+    const filteredSubset = getFilteredSubSet(currentFilter)
+    manager.setRender(filteredSubset)
+
+    const sortColumn = storageModule.getSort()
+    doSort(sortColumn, true)
+}
+
+module.exports = {
+    doFilter,
+    doInitFilter,
+}
+
+},{"./datamanager.js":1,"./sort.js":7,"./storage.js":8}],4:[function(require,module,exports){
+const { redraw, bindEvents, renderStatic } = require('./main.js')
+const { doInitFilter } = require('./filter.js')
+const { doInitSort } = require('./sort.js')
+const { manager } = require('./datamanager.js')
+const data = JSON.parse(document.getElementById('data-container').dataset.jsonblob)
+
+function init() {
+    manager.setManager(data)
+    doInitFilter()
+    doInitSort()
+    renderStatic()
+    redraw()
+    bindEvents()
+}
+
+init()
+
+},{"./datamanager.js":1,"./filter.js":3,"./main.js":5,"./sort.js":7}],5:[function(require,module,exports){
+const { dom, find, findAll } = require('./dom.js')
+const { manager } = require('./datamanager.js')
+const { doSort } = require('./sort.js')
+const { doFilter } = require('./filter.js')
+const {
+    getVisible,
+    getCollapsedIds,
+    setCollapsedIds,
+    getSort,
+    getSortDirection,
+    possibleFilters,
+} = require('./storage.js')
+
+const removeChildren = (node) => {
+    while (node.firstChild) {
+        node.removeChild(node.firstChild)
+    }
+}
+
+const renderStatic = () => {
+    const renderEnvironmentTable = () => {
+        const environment = manager.environment
+        const rows = Object.keys(environment).map((key) => dom.getStaticRow(key, environment[key]))
+        const table = document.getElementById('environment')
+        removeChildren(table)
+        rows.forEach((row) => table.appendChild(row))
+    }
+    renderEnvironmentTable()
+}
+
+const addItemToggleListener = (elem) => {
+    elem.addEventListener('click', ({ target }) => {
+        const id = target.parentElement.dataset.id
+        manager.toggleCollapsedItem(id)
+
+        const collapsedIds = getCollapsedIds()
+        if (collapsedIds.includes(id)) {
+            const updated = collapsedIds.filter((item) => item !== id)
+            setCollapsedIds(updated)
+        } else {
+            collapsedIds.push(id)
+            setCollapsedIds(collapsedIds)
+        }
+        redraw()
+    })
+}
+
+const renderContent = (tests) => {
+    const sortAttr = getSort(manager.initialSort)
+    const sortAsc = JSON.parse(getSortDirection())
+    const rows = tests.map(dom.getResultTBody)
+    const table = document.getElementById('results-table')
+    const tableHeader = document.getElementById('results-table-head')
+
+    const newTable = document.createElement('table')
+    newTable.id = 'results-table'
+
+    // remove all sorting classes and set the relevant
+    findAll('.sortable', tableHeader).forEach((elem) => elem.classList.remove('asc', 'desc'))
+    tableHeader.querySelector(`.sortable[data-column-type="${sortAttr}"]`)?.classList.add(sortAsc ? 'desc' : 'asc')
+    newTable.appendChild(tableHeader)
+
+    if (!rows.length) {
+        const emptyTable = document.getElementById('template_results-table__body--empty').content.cloneNode(true)
+        newTable.appendChild(emptyTable)
+    } else {
+        rows.forEach((row) => {
+            if (!!row) {
+                findAll('.collapsible td:not(.col-links', row).forEach(addItemToggleListener)
+                find('.logexpander', row).addEventListener('click',
+                    (evt) => evt.target.parentNode.classList.toggle('expanded'),
+                )
+                newTable.appendChild(row)
+            }
+        })
+    }
+
+    table.replaceWith(newTable)
+}
+
+const renderDerived = () => {
+    const currentFilter = getVisible()
+    possibleFilters.forEach((result) => {
+        const input = document.querySelector(`input[data-test-result="${result}"]`)
+        input.checked = currentFilter.includes(result)
+    })
+}
+
+const bindEvents = () => {
+    const filterColumn = (evt) => {
+        const { target: element } = evt
+        const { testResult } = element.dataset
+
+        doFilter(testResult, element.checked)
+        const collapsedIds = getCollapsedIds()
+        const updated = manager.renderData.tests.map((test) => {
+            return {
+                ...test,
+                collapsed: collapsedIds.includes(test.id),
+            }
+        })
+        manager.setRender(updated)
+        redraw()
+    }
+
+    const header = document.getElementById('environment-header')
+    header.addEventListener('click', () => {
+        const table = document.getElementById('environment')
+        table.classList.toggle('hidden')
+        header.classList.toggle('collapsed')
+    })
+
+    findAll('input[name="filter_checkbox"]').forEach((elem) => {
+        elem.addEventListener('click', filterColumn)
+    })
+
+    findAll('.sortable').forEach((elem) => {
+        elem.addEventListener('click', (evt) => {
+            const { target: element } = evt
+            const { columnType } = element.dataset
+            doSort(columnType)
+            redraw()
+        })
+    })
+
+    document.getElementById('show_all_details').addEventListener('click', () => {
+        manager.allCollapsed = false
+        setCollapsedIds([])
+        redraw()
+    })
+    document.getElementById('hide_all_details').addEventListener('click', () => {
+        manager.allCollapsed = true
+        const allIds = manager.renderData.tests.map((test) => test.id)
+        setCollapsedIds(allIds)
+        redraw()
+    })
+}
+
+const redraw = () => {
+    const { testSubset } = manager
+
+    renderContent(testSubset)
+    renderDerived()
+}
+
+module.exports = {
+    redraw,
+    bindEvents,
+    renderStatic,
+}
+
+},{"./datamanager.js":1,"./dom.js":2,"./filter.js":3,"./sort.js":7,"./storage.js":8}],6:[function(require,module,exports){
+class MediaViewer {
+    constructor(assets) {
+        this.assets = assets
+        this.index = 0
+    }
+
+    nextActive() {
+        this.index = this.index === this.assets.length - 1 ? 0 : this.index + 1
+        return [this.activeFile, this.index]
+    }
+
+    prevActive() {
+        this.index = this.index === 0 ? this.assets.length - 1 : this.index -1
+        return [this.activeFile, this.index]
+    }
+
+    get currentIndex() {
+        return this.index
+    }
+
+    get activeFile() {
+        return this.assets[this.index]
+    }
+}
+
+
+const setup = (resultBody, assets) => {
+    if (!assets.length) {
+        resultBody.querySelector('.media').classList.add('hidden')
+        return
+    }
+
+    const mediaViewer = new MediaViewer(assets)
+    const container = resultBody.querySelector('.media-container')
+    const leftArrow = resultBody.querySelector('.media-container__nav--left')
+    const rightArrow = resultBody.querySelector('.media-container__nav--right')
+    const mediaName = resultBody.querySelector('.media__name')
+    const counter = resultBody.querySelector('.media__counter')
+    const imageEl = resultBody.querySelector('img')
+    const sourceEl = resultBody.querySelector('source')
+    const videoEl = resultBody.querySelector('video')
+
+    const setImg = (media, index) => {
+        if (media?.format_type === 'image') {
+            imageEl.src = media.path
+
+            imageEl.classList.remove('hidden')
+            videoEl.classList.add('hidden')
+        } else if (media?.format_type === 'video') {
+            sourceEl.src = media.path
+
+            videoEl.classList.remove('hidden')
+            imageEl.classList.add('hidden')
+        }
+
+        mediaName.innerText = media?.name
+        counter.innerText = `${index + 1} / ${assets.length}`
+    }
+    setImg(mediaViewer.activeFile, mediaViewer.currentIndex)
+
+    const moveLeft = () => {
+        const [media, index] = mediaViewer.prevActive()
+        setImg(media, index)
+    }
+    const doRight = () => {
+        const [media, index] = mediaViewer.nextActive()
+        setImg(media, index)
+    }
+    const openImg = () => {
+        window.open(mediaViewer.activeFile.path, '_blank')
+    }
+    if (assets.length === 1) {
+        container.classList.add('media-container--fullscreen')
+    } else {
+        leftArrow.addEventListener('click', moveLeft)
+        rightArrow.addEventListener('click', doRight)
+    }
+    imageEl.addEventListener('click', openImg)
+}
+
+module.exports = {
+    setup,
+}
+
+},{}],7:[function(require,module,exports){
+const { manager } = require('./datamanager.js')
+const storageModule = require('./storage.js')
+
+const genericSort = (list, key, ascending, customOrder) => {
+    let sorted
+    if (customOrder) {
+        sorted = list.sort((a, b) => {
+            const aValue = a.result.toLowerCase()
+            const bValue = b.result.toLowerCase()
+
+            const aIndex = customOrder.findIndex((item) => item.toLowerCase() === aValue)
+            const bIndex = customOrder.findIndex((item) => item.toLowerCase() === bValue)
+
+            // Compare the indices to determine the sort order
+            return aIndex - bIndex
+        })
+    } else {
+        sorted = list.sort((a, b) => a[key] === b[key] ? 0 : a[key] > b[key] ? 1 : -1)
+    }
+
+    if (ascending) {
+        sorted.reverse()
+    }
+    return sorted
+}
+
+const durationSort = (list, ascending) => {
+    const parseDuration = (duration) => {
+        if (duration.includes(':')) {
+            // If it's in the format "HH:mm:ss"
+            const [hours, minutes, seconds] = duration.split(':').map(Number)
+            return (hours * 3600 + minutes * 60 + seconds) * 1000
+        } else {
+            // If it's in the format "nnn ms"
+            return parseInt(duration)
+        }
+    }
+    const sorted = list.sort((a, b) => parseDuration(a['duration']) - parseDuration(b['duration']))
+    if (ascending) {
+        sorted.reverse()
+    }
+    return sorted
+}
+
+const doInitSort = () => {
+    const type = storageModule.getSort(manager.initialSort)
+    const ascending = storageModule.getSortDirection()
+    const list = manager.testSubset
+    const initialOrder = ['Error', 'Failed', 'Rerun', 'XFailed', 'XPassed', 'Skipped', 'Passed']
+
+    storageModule.setSort(type)
+    storageModule.setSortDirection(ascending)
+
+    if (type?.toLowerCase() === 'original') {
+        manager.setRender(list)
+    } else {
+        let sortedList
+        switch (type) {
+        case 'duration':
+            sortedList = durationSort(list, ascending)
+            break
+        case 'result':
+            sortedList = genericSort(list, type, ascending, initialOrder)
+            break
+        default:
+            sortedList = genericSort(list, type, ascending)
+            break
+        }
+        manager.setRender(sortedList)
+    }
+}
+
+const doSort = (type, skipDirection) => {
+    const newSortType = storageModule.getSort(manager.initialSort) !== type
+    const currentAsc = storageModule.getSortDirection()
+    let ascending
+    if (skipDirection) {
+        ascending = currentAsc
+    } else {
+        ascending = newSortType ? false : !currentAsc
+    }
+    storageModule.setSort(type)
+    storageModule.setSortDirection(ascending)
+
+    const list = manager.testSubset
+    const sortedList = type === 'duration' ? durationSort(list, ascending) : genericSort(list, type, ascending)
+    manager.setRender(sortedList)
+}
+
+module.exports = {
+    doInitSort,
+    doSort,
+}
+
+},{"./datamanager.js":1,"./storage.js":8}],8:[function(require,module,exports){
+const possibleFilters = [
+    'passed',
+    'skipped',
+    'failed',
+    'error',
+    'xfailed',
+    'xpassed',
+    'rerun',
+]
+
+const getVisible = () => {
+    const url = new URL(window.location.href)
+    const settings = new URLSearchParams(url.search).get('visible')
+    const lower = (item) => {
+        const lowerItem = item.toLowerCase()
+        if (possibleFilters.includes(lowerItem)) {
+            return lowerItem
+        }
+        return null
+    }
+    return settings === null ?
+        possibleFilters :
+        [...new Set(settings?.split(',').map(lower).filter((item) => item))]
+}
+
+const hideCategory = (categoryToHide) => {
+    const url = new URL(window.location.href)
+    const visibleParams = new URLSearchParams(url.search).get('visible')
+    const currentVisible = visibleParams ? visibleParams.split(',') : [...possibleFilters]
+    const settings = [...new Set(currentVisible)].filter((f) => f !== categoryToHide).join(',')
+
+    url.searchParams.set('visible', settings)
+    window.history.pushState({}, null, unescape(url.href))
+}
+
+const showCategory = (categoryToShow) => {
+    if (typeof window === 'undefined') {
+        return
+    }
+    const url = new URL(window.location.href)
+    const currentVisible = new URLSearchParams(url.search).get('visible')?.split(',').filter(Boolean) ||
+        [...possibleFilters]
+    const settings = [...new Set([categoryToShow, ...currentVisible])]
+    const noFilter = possibleFilters.length === settings.length || !settings.length
+
+    noFilter ? url.searchParams.delete('visible') : url.searchParams.set('visible', settings.join(','))
+    window.history.pushState({}, null, unescape(url.href))
+}
+
+const getSort = (initialSort) => {
+    const url = new URL(window.location.href)
+    let sort = new URLSearchParams(url.search).get('sort')
+    if (!sort) {
+        sort = initialSort || 'result'
+    }
+    return sort
+}
+
+const setSort = (type) => {
+    const url = new URL(window.location.href)
+    url.searchParams.set('sort', type)
+    window.history.pushState({}, null, unescape(url.href))
+}
+
+const getCollapsedCategory = (renderCollapsed) => {
+    let categories
+    if (typeof window !== 'undefined') {
+        const url = new URL(window.location.href)
+        const collapsedItems = new URLSearchParams(url.search).get('collapsed')
+        switch (true) {
+        case !renderCollapsed && collapsedItems === null:
+            categories = ['passed']
+            break
+        case collapsedItems?.length === 0 || /^["']{2}$/.test(collapsedItems):
+            categories = []
+            break
+        case /^all$/.test(collapsedItems) || collapsedItems === null && /^all$/.test(renderCollapsed):
+            categories = [...possibleFilters]
+            break
+        default:
+            categories = collapsedItems?.split(',').map((item) => item.toLowerCase()) || renderCollapsed
+            break
+        }
+    } else {
+        categories = []
+    }
+    return categories
+}
+
+const getSortDirection = () => JSON.parse(sessionStorage.getItem('sortAsc')) || false
+const setSortDirection = (ascending) => sessionStorage.setItem('sortAsc', ascending)
+
+const getCollapsedIds = () => JSON.parse(sessionStorage.getItem('collapsedIds')) || []
+const setCollapsedIds = (list) => sessionStorage.setItem('collapsedIds', JSON.stringify(list))
+
+module.exports = {
+    getVisible,
+    hideCategory,
+    showCategory,
+    getCollapsedIds,
+    setCollapsedIds,
+    getSort,
+    setSort,
+    getSortDirection,
+    setSortDirection,
+    getCollapsedCategory,
+    possibleFilters,
+}
+
+},{}]},{},[4]);
+    </script>
+  </footer>
+  </body>
+</html>

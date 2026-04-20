@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 from faker import Faker
 
-from data import UserData, DataToLogIn
+from data.userdata import UserData, DataToLogIn
 from selenium.webdriver.support import expected_conditions as EC
 from TESTS.Selenium_tests.happy_path.base_test import BaseTest
 

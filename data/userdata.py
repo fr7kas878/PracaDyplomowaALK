@@ -21,5 +21,4 @@ class DataToLogIn:
     DATA2_TOSHORTPASSWORD = "jakies"
 
 
-# class TestDataToRegistration
 

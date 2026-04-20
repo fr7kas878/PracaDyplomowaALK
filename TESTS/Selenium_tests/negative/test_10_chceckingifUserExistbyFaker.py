@@ -1,3 +1,4 @@
+from data.userdata import UserData
 from pages import MyAccountPage
 from selenium.webdriver.common.by import By
 from TESTS.Selenium_tests.happy_path.base_test import BaseTest
@@ -31,7 +32,7 @@ class RegisterNewUser(BaseTest):
         self.page.register(email, UserData.DATA_PASSWORD)
         self.page.wait_success()
 
-        # 🔴 KLUCZOWE: logout / reset session
+        #logout / reset session
         try:
             self.driver.find_element(By.LINK_TEXT, "Wyloguj się").click()
         except:

@@ -1,9 +1,11 @@
-from selenium.webdriver.common.by import By
-from data import UserData
-from selenium.webdriver.support import expected_conditions as EC
-from TESTS.Selenium_tests.happy_path.base_test import BaseTest
 import csv
 import os
+
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+
+from TESTS.Selenium_tests.happy_path.base_test import BaseTest
+from data.userdata import UserData
 
 
 class BuyingHP(BaseTest):

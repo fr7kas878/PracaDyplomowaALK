@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from TESTS.Selenium_tests.happy_path.base_test import BaseTest
-from data import UserData
+from data.userdata import UserData
 import csv
 import random
 import os
