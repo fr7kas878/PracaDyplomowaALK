@@ -15,6 +15,7 @@ class UIHelpers:
         self.driver = driver
 
     def hide_banner(self):
+        # noinspection PyBroadException
         try:
             banner = self.driver.find_element(By.CLASS_NAME, "demo_store")
             self.driver.execute_script("arguments[0].style.display='none';", banner)

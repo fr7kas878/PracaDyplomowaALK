@@ -19,7 +19,7 @@ class ProductsInCart(BaseTest):
         )
         element.click()
 
-        # --- hide banner after navigation ---
+        # hide banner after navigation
         self.ui.hide_banner()
 
         # 3. add to cart several products --> adding several products in a loop by product_id :
@@ -31,20 +31,28 @@ class ProductsInCart(BaseTest):
             self.ui.hide_banner()
 
             element = self.wait.until(
-                EC.element_to_be_clickable((By.CSS_SELECTOR, f'[data-product_id="{product_id}"]'))   )
+                EC.element_to_be_clickable((By.CSS_SELECTOR, f'[data-product_id="{product_id}"]'))  )
             element.click()
+
+            # wait for AJAX confirmation (product added)
+            self.wait.until(
+                EC.presence_of_element_located((By.CSS_SELECTOR, ".added_to_cart"))  )
 
          # 3.b hide banner before going to cart
         self.ui.hide_banner()
 
         # 4. click button "Zobacz koszyk" to go to cart
         self.wait.until(
-            EC.element_to_be_clickable((By.CSS_SELECTOR, '.added_to_cart.wc-forward'))  ).click()
+            EC.element_to_be_clickable((By.CSS_SELECTOR, '.added_to_cart.wc-forward'))
+        ).click()
 
         # 4a. hide banner on cart page
         self.ui.hide_banner()
 
         # 5. check expected result -> summary ordered quantity of products
+        self.wait.until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, ".woocommerce-cart-form"))  )
+
         quantities = self.driver.find_elements(By.CSS_SELECTOR, ".qty")
         total_qty = sum(int(q.get_attribute("value")) for q in quantities)
 
@@ -52,7 +60,7 @@ class ProductsInCart(BaseTest):
 
         # 6. set quantity of product to 0
         qty_input = self.wait.until(
-            EC.visibility_of_element_located((By.CSS_SELECTOR, "input.qty")) )
+            EC.presence_of_element_located((By.CSS_SELECTOR, "input.qty")) )
         qty_input.clear()
         qty_input.send_keys("0")
 
@@ -61,14 +69,16 @@ class ProductsInCart(BaseTest):
 
         # 7. Click button "Zaktualizuj koszyk"
         self.wait.until(
-            EC.element_to_be_clickable((By.NAME, "update_cart"))  ).click()
+            EC.element_to_be_clickable((By.NAME, "update_cart")) ).click()
 
         # 7a.wait for cart refresh
         self.wait.until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, ".woocommerce-cart-form"))  )
-        # 8. Check expected result - product is not visible in cart anymore
-        updated_qty = self.wait.until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, "input.qty"))
-        ).get_attribute("value")
+            EC.presence_of_element_located((By.CSS_SELECTOR, ".woocommerce-cart-form")) )
 
-        self.assertEqual(updated_qty, "0")
+        # 8. Check expected result - product is not visible in cart anymore
+        self.wait.until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, ".woocommerce-cart-form"))  )
+
+        updated_qty = self.wait.until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, "input.qty")) )
+        self.assertEqual(updated_qty.get_attribute("value"), "0")

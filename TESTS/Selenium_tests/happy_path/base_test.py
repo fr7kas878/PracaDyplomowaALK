@@ -3,9 +3,11 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
-from helpers import UIHelpers
 from faker import Faker
+from helpers.UIHelpers import UIHelpers
 import unittest
+import sys
+import os
 
 class BaseTest(unittest.TestCase):
 
@@ -32,6 +34,10 @@ class BaseTest(unittest.TestCase):
         except:
             pass
 
+
     def tearDown(self):
         if hasattr(self, "driver"):
             self.driver.quit()
+
+    sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../..")))
+
