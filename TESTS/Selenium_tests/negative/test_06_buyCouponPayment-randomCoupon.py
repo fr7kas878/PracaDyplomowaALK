@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-from FakeStoreTESTS.Selenium_tests.happy_path.base_test import BaseTest
+from TESTS.Selenium_tests.happy_path.base_test import BaseTest
 import csv
 import os
 import random
@@ -52,7 +52,7 @@ class BuyingHP(BaseTest):
 
         # 5. enter a coupon code and click a button "Zastosuj kupon"
         # coupons from csv file
-        file_path = os.path.join(os.path.dirname(__file__), '../../data/couponsTest.csv')
+        file_path = os.path.join(os.path.dirname(__file__), '../../../data/couponsTest.csv')
 
         #random code
         with open(file_path, newline='') as csvfile:

@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
-from FakeStoreTESTS.data.userdata import UserData
+from data import UserData
 from selenium.webdriver.support import expected_conditions as EC
-from FakeStoreTESTS.Selenium_tests.happy_path.base_test import BaseTest
+from TESTS.Selenium_tests.happy_path.base_test import BaseTest
 import csv
 import os
 
@@ -58,7 +58,7 @@ class BuyingHP(BaseTest):
         ).click()
 
         # 5. enter a coupon code and click a button "Zastosuj kupon"
-        file_path = os.path.join(os.path.dirname(__file__), '../../data/couponsTest.csv')
+        file_path = os.path.join(os.path.dirname(__file__), '../../../data/couponsTest.csv')
 
         with open(file_path, newline='') as csvfile:
             reader = csv.reader(csvfile)
@@ -98,7 +98,7 @@ class BuyingHP(BaseTest):
         self.driver.find_element(By.ID,'billing_phone').send_keys(UserData.DATA_PHONE)
 
         #15. Fake card payment data form csv
-        file_path = os.path.join(os.path.dirname(__file__), '../../data/credit_cards.csv')
+        file_path = os.path.join(os.path.dirname(__file__), '../../../data/credit_cards.csv')
 
         with open(file_path, newline='') as csvfile:
             reader = list(csv.DictReader(csvfile))

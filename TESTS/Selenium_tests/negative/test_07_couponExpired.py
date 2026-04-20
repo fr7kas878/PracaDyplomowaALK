@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-from FakeStoreTESTS.Selenium_tests.happy_path.base_test import BaseTest
+from TESTS.Selenium_tests.happy_path.base_test import BaseTest
 import csv
 import os
 
@@ -51,7 +51,7 @@ class BuyingHP(BaseTest):
 
         file_path = os.path.join(
             os.path.dirname(__file__),
-            '../../data/couponsTest.csv'
+            '../../../data/couponsTest.csv'
         )
 
         # 7. take a random code

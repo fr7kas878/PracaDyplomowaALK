@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from FakeStoreTESTS.Selenium_tests.happy_path.base_test import BaseTest
+from TESTS.Selenium_tests.happy_path.base_test import BaseTest
 class PriceTest(BaseTest):
     def test_check_prices(self):
         try:

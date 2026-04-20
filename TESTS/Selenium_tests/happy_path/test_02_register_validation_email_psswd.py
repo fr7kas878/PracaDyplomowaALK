@@ -1,9 +1,9 @@
 from selenium.webdriver.common.by import By
 from faker import Faker
 
-from FakeStoreTESTS.data.userdata import UserData, DataToLogIn
+from data import UserData, DataToLogIn
 from selenium.webdriver.support import expected_conditions as EC
-from FakeStoreTESTS.Selenium_tests.happy_path.base_test import BaseTest
+from TESTS.Selenium_tests.happy_path.base_test import BaseTest
 
 
 class RegisterValidateFields(BaseTest):
