@@ -31,14 +31,16 @@ class ProductsInCart(BaseTest):
             self.ui.hide_banner()
 
             element = self.wait.until(
-                EC.element_to_be_clickable((By.CSS_SELECTOR, f'[data-product_id="{product_id}"]'))  )
+                EC.element_to_be_clickable((By.CSS_SELECTOR, f'[data-product_id="{product_id}"]'))
+            )
             element.click()
 
             # wait for AJAX confirmation (product added)
             self.wait.until(
-                EC.presence_of_element_located((By.CSS_SELECTOR, ".added_to_cart"))  )
+                EC.presence_of_element_located((By.CSS_SELECTOR, ".added_to_cart"))
+            )
 
-         # 3.b hide banner before going to cart
+        # 3.b hide banner before going to cart
         self.ui.hide_banner()
 
         # 4. click button "Zobacz koszyk" to go to cart
@@ -51,16 +53,22 @@ class ProductsInCart(BaseTest):
 
         # 5. check expected result -> summary ordered quantity of products
         self.wait.until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, ".woocommerce-cart-form"))  )
+            EC.presence_of_element_located((By.CSS_SELECTOR, ".woocommerce-cart-form"))
+        )
 
-        quantities = self.driver.find_elements(By.CSS_SELECTOR, ".qty")
+        quantities = self.wait.until(
+            EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".qty"))
+        )
+
         total_qty = sum(int(q.get_attribute("value")) for q in quantities)
 
         self.assertEqual(total_qty, len(products))
 
         # 6. set quantity of product to 0
         qty_input = self.wait.until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, "input.qty")) )
+            EC.presence_of_element_located((By.CSS_SELECTOR, "input.qty"))
+        )
+        self.driver.execute_script("arguments[0].scrollIntoView(true);", qty_input)
         qty_input.clear()
         qty_input.send_keys("0")
 
@@ -68,17 +76,23 @@ class ProductsInCart(BaseTest):
         self.ui.hide_banner()
 
         # 7. Click button "Zaktualizuj koszyk"
-        self.wait.until(
-            EC.element_to_be_clickable((By.NAME, "update_cart")) ).click()
+        update_btn = self.wait.until(
+            EC.element_to_be_clickable((By.NAME, "update_cart")))
+        update_btn.click()
 
         # 7a.wait for cart refresh
         self.wait.until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, ".woocommerce-cart-form")) )
+            EC.invisibility_of_element_located((By.CSS_SELECTOR, ".blockUI.blockOverlay")))
+
+
+        self.wait.until(
+             EC.presence_of_element_located((By.CSS_SELECTOR, ".woocommerce-cart-form")) )
 
         # 8. Check expected result - product is not visible in cart anymore
         self.wait.until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, ".woocommerce-cart-form"))  )
+            EC.staleness_of(qty_input)   )
 
-        updated_qty = self.wait.until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, "input.qty")) )
-        self.assertEqual(updated_qty.get_attribute("value"), "0")
+        updated_input = self.wait.until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, "input.qty"))  )
+
+        self.assertEqual(updated_input.get_attribute("value"), "0")
