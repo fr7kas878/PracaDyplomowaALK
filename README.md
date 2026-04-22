@@ -14,7 +14,6 @@ Ten projekt zawiera zestaw testów automatycznych dla sklepu https://fakestore.t
 
 # URUCHAMIANIE TESTÓW:
 
-```
 # STRUKTURA PROJEKTU:
 
 ├── assets
