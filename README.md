@@ -15,6 +15,7 @@ Ten projekt zawiera zestaw testów automatycznych dla sklepu https://fakestore.t
 # URUCHAMIANIE TESTÓW:
 
 # STRUKTURA PROJEKTU:
+</>
 
 ├── assets
 │   └── style.css
@@ -66,7 +67,7 @@ Ten projekt zawiera zestaw testów automatycznych dla sklepu https://fakestore.t
 │       │   └── test_08_payment_error.py
 │       └── test_results.txt
 ```
-
+</>
 
 
 
