@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from TESTS.Selenium_tests.happy_path.base_test import BaseTest
+from tests.Selenium_tests.happy_path.base_test import BaseTest
 from selenium.webdriver.support import expected_conditions as EC
 
 from data.userdata import DataToLogIn

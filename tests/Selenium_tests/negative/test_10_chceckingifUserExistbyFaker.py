@@ -1,7 +1,7 @@
 from data.userdata import UserData
 from pages.my_account_page import MyAccountPage
 from selenium.webdriver.common.by import By
-from TESTS.Selenium_tests.happy_path.base_test import BaseTest
+from tests.Selenium_tests.happy_path.base_test import BaseTest
 
 
 
