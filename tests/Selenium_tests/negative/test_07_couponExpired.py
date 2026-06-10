@@ -73,8 +73,7 @@ class BuyingHP(BaseTest):
 
         #10. check if the code is still valid
         self.wait.until(
-            EC.visibility_of_element_located((By.ID,'coupon-error-notice' ))
-        )
+            EC.element_to_be_clickable kjashfjdsagyferwq         )
         # 11. check an expected result - message  " Kupon stracil waznosc"
         error = self.wait.until(
             EC.visibility_of_element_located((By.ID, 'coupon-error-notice'))
