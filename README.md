@@ -15,42 +15,72 @@ Ten projekt zawiera zestaw testów automatycznych dla sklepu https://fakestore.t
 # URUCHAMIANIE TESTÓW:
 
 # STRUKTURA PROJEKTU:
-
+.
 ├── assets
 │   └── style.css
 ├── chromium_home.png
 ├── data
 │   ├── couponsTest.csv
 │   ├── credit_cards.csv
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   ├── __init__.cpython-312.pyc
+│   │   └── userdata.cpython-312.pyc
 │   └── userdata.py
+├── debug_register.png
 ├── firefox_home.png
 ├── helpers
-│   ├── UIHelpers.py
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   └── __init__.cpython-312.pyc
 │   └── utilities.py
 ├── ipad_mini_home.png
 ├── iphone14.png
 ├── pages
-│   ├── MyAccountPage.py
+│   ├── base_page.py
+│   ├── home_page.py
+│   ├── __init__.py
+│   ├── my_account_page.py
+│   └── __pycache__
+│       ├── base_page.cpython-312.pyc
+│       ├── home_page.cpython-312.pyc
+│       ├── __init__.cpython-312.pyc
+│       └── my_account_page.cpython-312.pyc
+├── PD_KFracek-do poprawy kody.docm
 ├── README.md
 ├── report.html
+├── reports
+│   ├── assets
+│   │   └── style.css
+│   ├── firstrReport.html
+│   └── report.html
 ├── requirements.txt
+├── Scenariusze - MOJE KONTO.ods
+├── struktura.txt
 ├── test_results.txt
-├── TESTS
+├── tests
+│   ├── __init__.py
 │   ├── Playwright_tests
 │   │   ├── chromium_home.png
 │   │   ├── firefox_home.png
 │   │   ├── __init__.py
 │   │   ├── ipad_mini_home.png
 │   │   ├── iphone14.png
+│   │   ├── __pycache__
+│   │   │   └── __init__.cpython-312.pyc
 │   │   ├── responsiveness
+│   │   │   ├── __pycache__
 │   │   │   ├── test_14_desktop_3browsers.py
 │   │   │   ├── test_15_mobile_iphone14ProMax.py
 │   │   │   └── test_16_tablet_iPadMini.py
 │   │   ├── setup_playwright.sh
 │   │   └── webkit_home.png
+│   │   └── __init__.cpython-312.pyc
 │   └── Selenium_tests
+│       ├── debug_register.png
 │       ├── happy_path
 │       │   ├── base_test.py
+│       │   ├── __pycache__
 │       │   ├── test_01_register_happyPath.py
 │       │   ├── test_02_register_validation_email_psswd.py
 │       │   ├── test_03_login_myaccount_happyPath.py
@@ -61,11 +91,12 @@ Ten projekt zawiera zestaw testów automatycznych dla sklepu https://fakestore.t
 │       │   └── test_12_zeroQtyUpdateCart.py
 │       ├── __init__.py
 │       ├── negative
+│       │   ├── __pycache__
 │       │   ├── test_06_buyCouponPayment-randomCoupon.py
 │       │   ├── test_07_couponExpired.py
 │       │   ├── test_08_payment_error.py
-│       └── test_results.txt
-
+│       │   └── test_10_chceckingifUserExistbyFaker.py
+│   
 
 
 
