@@ -3,3 +3,4 @@ PASSED: Wakacje z yogą w Kraju Kwitnącej Wiśni is on sale. Old: 4599.0, New: 
 PASSED: Wakacje z yogą w Kraju Kwitnącej Wiśni is on sale. Old: 4599.0, New: 4299.0
 PASSED: Wakacje z yogą w Kraju Kwitnącej Wiśni is on sale. Old: 4599.0, New: 4299.0
 PASSED: Wakacje z yogą w Kraju Kwitnącej Wiśni is on sale. Old: 4599.0, New: 4299.0
+Wakacje z yogą w Kraju Kwitnącej Wiśni | old: 4599.0 | new: 4299.0

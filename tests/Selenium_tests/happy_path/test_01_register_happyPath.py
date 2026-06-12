@@ -1,14 +1,14 @@
 from data.userdata import UserData
 
 from pages.my_account_page import MyAccountPage
-
-from happy_path.base_test import BaseTest
+from tests.Selenium_tests.happy_path.base_test import BaseTest
 
 
 class RegisterNewUser(BaseTest):
 
 
     def test_new_user_registration(self):
+
 
         self.home_page.open_my_account()
 
