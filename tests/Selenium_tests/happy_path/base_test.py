@@ -16,13 +16,24 @@ class BaseTest(unittest.TestCase):
 
         options = Options()
 
-
         options.add_argument(
             "--start-maximized"
         )
 
+        options.add_argument(
+            "--disable-notifications"
+        )
+
+        options.add_argument(
+            "--disable-extensions"
+        )
+
         self.driver = webdriver.Chrome(
             options=options
+        )
+
+        self.driver.implicitly_wait(
+            3
         )
 
         self.wait = WebDriverWait(
@@ -40,30 +51,10 @@ class BaseTest(unittest.TestCase):
             self.driver
         )
 
-        options.add_argument("--start-maximized")
-        options.add_argument("--disable-notifications")
-        options.add_argument("--disable-extensions")
-
-        self.driver = webdriver.Chrome(options=options)
-
-        self.driver.implicitly_wait(3)
-
-        self.wait = WebDriverWait(self.driver, 10)
-
-        self.faker = Faker()
-
-        self.driver.get(self.BASE_URL)
-
-        self.home_page = HomePage(self.driver)
-
-
         self.home_page.close_banner()
 
     def tearDown(self):
 
-
-        self.driver.quit()
-
         if self.driver:
-            self.driver.quit()
 
+            self.driver.quit()

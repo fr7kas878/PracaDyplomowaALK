@@ -12,6 +12,11 @@ class HomePage(BasePage):
         "menu-item-201"
     )
 
+    SHOP_MENU = (
+        By.ID,
+        "menu-item-198"
+    )
+
     STORE_NOTICE = (
         By.CLASS_NAME,
         "woocommerce-store-notice"
@@ -20,6 +25,21 @@ class HomePage(BasePage):
     CLOSE_NOTICE = (
         By.CLASS_NAME,
         "woocommerce-store-notice__dismiss-link"
+    )
+
+    LOGO = (
+        By.CLASS_NAME,
+        "custom-logo"
+    )
+
+    CLIMBING_CATEGORY = (
+        By.PARTIAL_LINK_TEXT,
+        "Wspinaczka"
+    )
+
+    REGISTRATION_EMAIL = (
+        By.ID,
+        "reg_email"
     )
 
     def close_banner(self):
@@ -41,6 +61,7 @@ class HomePage(BasePage):
             )
 
         except TimeoutException:
+
             pass
 
     def open_my_account(self):
@@ -49,4 +70,32 @@ class HomePage(BasePage):
 
         self.click(
             self.ACCOUNT_MENU
+        )
+
+    def open_shop(self):
+
+        self.close_banner()
+
+        self.click(
+            self.SHOP_MENU
+        )
+
+    def go_home(self):
+
+        self.click(
+            self.LOGO
+        )
+
+    def open_climbing_category(self):
+
+        self.click(
+            self.CLIMBING_CATEGORY
+        )
+
+    def is_my_account_opened(self):
+
+        return (
+            "moje-konto"
+            in
+            self.get_current_url()
         )

@@ -17,7 +17,7 @@ class UserData:
 class DataToLogIn:
     DATA1_USEREXISTINGEMAIL = "rightadresstome@gmail.com"
     DATA1_PASSWORD = "JakiesNowe67&"
-    DATA2_WRONGEMAIL ="fr7kas@@gmail.com"
+    DATA_WRONGEMAIL ="fr7kas@@gmail.com"
     DATA2_TOSHORTPASSWORD = "jakies"
 
 

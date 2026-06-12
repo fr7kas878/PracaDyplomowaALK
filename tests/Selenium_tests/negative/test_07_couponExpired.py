@@ -1,82 +1,140 @@
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
-from tests.Selenium_tests.happy_path.base_test import BaseTest
 import csv
 import os
 
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+
+from tests.Selenium_tests.happy_path.base_test import BaseTest
+
+
 class BuyingHP(BaseTest):
+
+    PRODUCTS = [
+        "386",
+        "393",
+        "391",
+        "4116",
+        "389"
+    ]
+
+    SHOP_MENU = (
+        By.ID,
+        "menu-item-198"
+    )
+
+    CATEGORY = (
+        By.CSS_SELECTOR,
+        "#main ul li:first-child a"
+    )
+
+    CART_BUTTON = (
+        By.CSS_SELECTOR,
+        ".added_to_cart.wc-forward"
+    )
+
+    COUPON_FIELD = (
+        By.NAME,
+        "coupon_code"
+    )
+
+    APPLY_COUPON = (
+        By.NAME,
+        "apply_coupon"
+    )
+
+    ERROR_BOX = (
+        By.ID,
+        "coupon-error-notice"
+    )
 
     def setUp(self):
         super().setUp()
 
-    # @unittest.skip("Temporary skipping")
-    def test_buy_coupon_payment(self):
-        # 1. primary menu on main page - click Sklep
-        self.driver.find_element(By.XPATH, '//*[@id="menu-item-198"]').click()
-        # 2. choose a first category - windsurfing[1]
-        element = self.wait.until(
-            EC.element_to_be_clickable((By.XPATH, '//*[@id="main"]/ul/li[1]//a'))
+        self.data_path = os.path.join(
+            os.path.dirname(__file__),
+            "../../../data/couponsTest.csv"
         )
-        element.click()
 
-        # 3. add to cart several products
-        #adding several products in a loop by product_id :
+    def test_buy_coupon_payment(self):
 
-        products = ["386", "393", "391", "4116", "389"]
-        for product_id in products:
+        #1. open shop
+        self.wait.until(
+            EC.element_to_be_clickable(
+                self.SHOP_MENU
+            )
+        ).click()
 
-            # 3a. banner fix again
-            self.ui.hide_banner()
+        #2. choose category
+        self.wait.until(
+            EC.element_to_be_clickable(
+                self.CATEGORY
+            )
+        ).click()
+
+        #3. add products
+        for product_id in self.PRODUCTS:
+
+            self.home_page.close_banner()
+
+            locator = (
+                By.CSS_SELECTOR,
+                f'[data-product_id="{product_id}"]'
+            )
 
             element = self.wait.until(
-                EC.element_to_be_clickable((By.CSS_SELECTOR, f'[data-product_id="{product_id}"]'))  )
+                EC.element_to_be_clickable(locator)
+            )
 
-            # 3b. adding scroll
-            self.driver.execute_script("arguments[0].scrollIntoView(true);", element)
+            self.driver.execute_script(
+                "arguments[0].scrollIntoView(true);",
+                element
+            )
 
             try:
                 element.click()
             except:
-                # 3c. when you click on banner, force a click
-                self.driver.execute_script("arguments[0].click();", element)
-        # 4.click button "Zobacz koszyk" to go to cart
+                self.driver.execute_script(
+                    "arguments[0].click();",
+                    element
+                )
+
+        #4. go to cart
         self.wait.until(
-            EC.element_to_be_clickable
-            ((By.CSS_SELECTOR, '.added_to_cart.wc-forward'))
+            EC.element_to_be_clickable(
+                self.CART_BUTTON
+            )
         ).click()
 
-        # 5. enter a coupon code and click a button "Zastosuj kupoon"
-        # 6. coupons from csv file
-
-        file_path = os.path.join(
-            os.path.dirname(__file__),
-            '../../../data/couponsTest.csv'
-        )
-
-        # 7. take a random code
-        with open(file_path, newline='') as csvfile:
-            reader = csv.reader(csvfile)  # tu jest zwykly reader csv - ktory bierze liste, a nie slownik
-            rows = list(reader)
+        #5. read expired coupon
+        with open(self.data_path, newline="") as csvfile:
+            rows = list(csv.reader(csvfile))
             coupon_code = rows[8][0]
 
-        print(f' W tym tescie wybieramy kod, ktory stracil waznosc: " {coupon_code} "- test negatywny')
-
-        #8. insert a coupon code
-        self.wait.until(
-            EC.visibility_of_element_located((By.NAME,'coupon_code'))
-        ).send_keys(coupon_code)
-
-        #9. click aplly coupon
-        self.wait.until(
-            EC.element_to_be_clickable((By.NAME,'apply_coupon'))
-        ).click()
-
-        #10. check if the code is still valid
-        self.wait.until(
-            EC.element_to_be_clickable kjashfjdsagyferwq         )
-        # 11. check an expected result - message  " Kupon stracil waznosc"
-        error = self.wait.until(
-            EC.visibility_of_element_located((By.ID, 'coupon-error-notice'))
+        print(
+            f'Kupon test (wygasły): {coupon_code}'
         )
 
-        self.assertIn("stracił ważność", error.text.lower())
+        #6. apply coupon
+        self.wait.until(
+            EC.visibility_of_element_located(
+                self.COUPON_FIELD
+            )
+        ).send_keys(coupon_code)
+
+        self.wait.until(
+            EC.element_to_be_clickable(
+                self.APPLY_COUPON
+            )
+        ).click()
+
+        #7. check error
+        error = self.wait.until(
+            EC.visibility_of_element_located(
+                self.ERROR_BOX
+            )
+        )
+
+        self.assertIn(
+            "stracił",
+            error.text.lower()
+        )
