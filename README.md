@@ -11,8 +11,10 @@ Ten projekt zawiera zestaw testów automatycznych dla sklepu https://fakestore.t
 6. Walidacje komunikatów dla formularzy i działania przycisków
 
 # WARUNKI WSTĘPNE: 
+python 3, pycharm
 
-# URUCHAMIANIE TESTÓW:
+# URUCHAMIANIE TESTÓW: 
+pytest
 
 # STRUKTURA PROJEKTU:
 .
